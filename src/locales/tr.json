@@ -11,7 +11,18 @@
   },
   "projects": {
     "viewButton": "İNCELE",
-    "title": "Projelerimiz"
+    "title": "Projelerimiz",
+    "comingSoon": "Projeler sayfası içeriği yakında eklenecektir."
+  },
+  "about": {
+    "comingSoon": "Hakkımızda sayfası içeriği yakında eklenecektir."
+  },
+  "contact": {
+    "comingSoon": "İletişim sayfası içeriği yakında eklenecektir."
+  },
+  "projectDetail": {
+    "year": "Yıl",
+    "notFound": "Proje bulunamadı"
   },
   "footer": {
     "rights": "© 2024 Metsis İnşaat. Tüm hakları saklıdır.",

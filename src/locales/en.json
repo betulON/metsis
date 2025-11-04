@@ -11,7 +11,18 @@
   },
   "projects": {
     "viewButton": "VIEW",
-    "title": "Our Projects"
+    "title": "Our Projects",
+    "comingSoon": "Projects page content will be added soon."
+  },
+  "about": {
+    "comingSoon": "About page content will be added soon."
+  },
+  "contact": {
+    "comingSoon": "Contact page content will be added soon."
+  },
+  "projectDetail": {
+    "year": "Year",
+    "notFound": "Project not found"
   },
   "footer": {
     "rights": "© 2024 Metsis Construction. All rights reserved.",

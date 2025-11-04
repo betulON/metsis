@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
 const ProjectDetail = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { id } = useParams();
 
   // Mock project data
@@ -42,25 +42,25 @@ const ProjectDetail = () => {
   };
 
   const project = projects[id];
-  const lang = t('header.home') === 'Ana Sayfa' ? 'tr' : 'en';
+  const isEnglish = i18n.language === 'en';
 
   if (!project) {
-    return <div className="container"><h1>Proje bulunamadı / Project not found</h1></div>;
+    return <div className="container"><h1>{t('projectDetail.notFound')}</h1></div>;
   }
 
   return (
     <div className="project-detail-page">
       <div className="container">
-        <h1>{lang === 'tr' ? project.title : project.titleEn}</h1>
+        <h1>{isEnglish ? project.titleEn : project.title}</h1>
         <div className="project-info">
           <p><strong>{t('footer.address')}:</strong> {project.location}</p>
-          <p><strong>{lang === 'tr' ? 'Yıl' : 'Year'}:</strong> {project.year}</p>
+          <p><strong>{t('projectDetail.year')}:</strong> {project.year}</p>
         </div>
         <div className="project-description">
-          <p>{lang === 'tr' ? project.description : project.descriptionEn}</p>
+          <p>{isEnglish ? project.descriptionEn : project.description}</p>
         </div>
         <div className="project-gallery">
-          <img src={`https://via.placeholder.com/800x600/2c3e50/ffffff?text=${encodeURIComponent(lang === 'tr' ? project.title : project.titleEn)}`} alt={project.title} />
+          <img src={`https://via.placeholder.com/800x600/2c3e50/ffffff?text=${encodeURIComponent(isEnglish ? project.titleEn : project.title)}`} alt={project.title} />
         </div>
       </div>
     </div>

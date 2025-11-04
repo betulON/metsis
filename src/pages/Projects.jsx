@@ -7,7 +7,7 @@ const Projects = () => {
     <div className="projects-page">
       <div className="container">
         <h1>{t('projects.title')}</h1>
-        <p>Projeler sayfası içeriği yakında eklenecektir.</p>
+        <p>{t('projects.comingSoon')}</p>
       </div>
     </div>
   );

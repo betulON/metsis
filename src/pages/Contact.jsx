@@ -7,7 +7,7 @@ const Contact = () => {
     <div className="contact-page">
       <div className="container">
         <h1>{t('header.contact')}</h1>
-        <p>İletişim sayfası içeriği yakında eklenecektir.</p>
+        <p>{t('contact.comingSoon')}</p>
       </div>
     </div>
   );

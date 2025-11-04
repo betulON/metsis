@@ -7,7 +7,7 @@ const About = () => {
     <div className="about-page">
       <div className="container">
         <h1>{t('header.about')}</h1>
-        <p>Hakkımızda sayfası içeriği yakında eklenecektir.</p>
+        <p>{t('about.comingSoon')}</p>
       </div>
     </div>
   );
