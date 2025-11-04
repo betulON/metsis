@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metsis - İletişim</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>METSIS</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link" data-tr="Anasayfa" data-en="Home">Anasayfa</a></li>
+                <li class="dropdown">
+                    <a href="kurumsal.html" class="nav-link" data-tr="Kurumsal" data-en="Corporate">Kurumsal</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="kurumsal.html#sirket" data-tr="Şirket" data-en="Company">Şirket</a></li>
+                        <li><a href="kurumsal.html#kalite" data-tr="Kalite" data-en="Quality">Kalite</a></li>
+                        <li><a href="kurumsal.html#insan" data-tr="İnsan" data-en="People">İnsan</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="projeler.html" class="nav-link" data-tr="Projeler" data-en="Projects">Projeler</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="projeler.html#devam-eden" data-tr="Devam Eden" data-en="Ongoing">Devam Eden</a></li>
+                        <li><a href="projeler.html#tamamlanmis" data-tr="Tamamlanmış" data-en="Completed">Tamamlanmış</a></li>
+                    </ul>
+                </li>
+                <li><a href="referanslar.html" class="nav-link" data-tr="Referanslar" data-en="References">Referanslar</a></li>
+                <li><a href="iletisim.html" class="nav-link active" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+            </ul>
+            <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">EN</button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 data-tr="İletişim" data-en="Contact">İletişim</h1>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h2 data-tr="İletişim Bilgileri" data-en="Contact Information">İletişim Bilgileri</h2>
+                        <div class="info-item">
+                            <h3 data-tr="Adres" data-en="Address">Adres</h3>
+                            <p>Metsis İnşaat Taahhüt Ltd. Şti.<br>
+                            Örnek Mahallesi, İnşaat Caddesi No: 123<br>
+                            Çankaya / Ankara, Türkiye</p>
+                        </div>
+                        <div class="info-item">
+                            <h3 data-tr="Telefon" data-en="Phone">Telefon</h3>
+                            <p>+90 (312) 123 45 67<br>
+                            +90 (312) 123 45 68</p>
+                        </div>
+                        <div class="info-item">
+                            <h3 data-tr="E-posta" data-en="Email">E-posta</h3>
+                            <p>info@metsis.com.tr<br>
+                            iletisim@metsis.com.tr</p>
+                        </div>
+                        <div class="info-item">
+                            <h3 data-tr="Çalışma Saatleri" data-en="Working Hours">Çalışma Saatleri</h3>
+                            <p data-tr="Pazartesi - Cuma: 09:00 - 18:00" data-en="Monday - Friday: 09:00 - 18:00">Pazartesi - Cuma: 09:00 - 18:00</p>
+                            <p data-tr="Cumartesi - Pazar: Kapalı" data-en="Saturday - Sunday: Closed">Cumartesi - Pazar: Kapalı</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h2 data-tr="Bize Ulaşın" data-en="Get in Touch">Bize Ulaşın</h2>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name" data-tr="Ad Soyad" data-en="Full Name">Ad Soyad</label>
+                                <input type="text" id="name" name="name" required placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" data-tr="E-posta" data-en="Email">E-posta</label>
+                                <input type="email" id="email" name="email" required placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" data-tr="Telefon" data-en="Phone">Telefon</label>
+                                <input type="tel" id="phone" name="phone" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject" data-tr="Konu" data-en="Subject">Konu</label>
+                                <input type="text" id="subject" name="subject" required placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="message" data-tr="Mesajınız" data-en="Your Message">Mesajınız</label>
+                                <textarea id="message" name="message" rows="5" required placeholder=""></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn" data-tr="Gönder" data-en="Send">Gönder</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <div class="container">
+                <h2 data-tr="Konum" data-en="Location">Konum</h2>
+                <div class="map-placeholder">
+                    <p data-tr="Harita (Google Maps entegrasyonu için hazır)" data-en="Map (Ready for Google Maps integration)">Harita (Google Maps entegrasyonu için hazır)</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Metsis İnşaat. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span></p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
