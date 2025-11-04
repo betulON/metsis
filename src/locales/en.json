@@ -1,0 +1,22 @@
+{
+  "header": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Metsis Construction",
+    "subtitle": "Modern and Quality Construction Solutions"
+  },
+  "projects": {
+    "viewButton": "VIEW",
+    "title": "Our Projects"
+  },
+  "footer": {
+    "rights": "© 2024 Metsis Construction. All rights reserved.",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email"
+  }
+}

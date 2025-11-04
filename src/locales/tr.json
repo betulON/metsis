@@ -1,0 +1,22 @@
+{
+  "header": {
+    "home": "Ana Sayfa",
+    "projects": "Projeler",
+    "about": "Hakkımızda",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "title": "Metsis İnşaat",
+    "subtitle": "Modern ve Kaliteli İnşaat Çözümleri"
+  },
+  "projects": {
+    "viewButton": "İNCELE",
+    "title": "Projelerimiz"
+  },
+  "footer": {
+    "rights": "© 2024 Metsis İnşaat. Tüm hakları saklıdır.",
+    "address": "Adres",
+    "phone": "Telefon",
+    "email": "E-posta"
+  }
+}
