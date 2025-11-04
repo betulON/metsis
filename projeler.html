@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metsis - Projeler</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>METSIS</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link" data-tr="Anasayfa" data-en="Home">Anasayfa</a></li>
+                <li class="dropdown">
+                    <a href="kurumsal.html" class="nav-link" data-tr="Kurumsal" data-en="Corporate">Kurumsal</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="kurumsal.html#sirket" data-tr="Şirket" data-en="Company">Şirket</a></li>
+                        <li><a href="kurumsal.html#kalite" data-tr="Kalite" data-en="Quality">Kalite</a></li>
+                        <li><a href="kurumsal.html#insan" data-tr="İnsan" data-en="People">İnsan</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="projeler.html" class="nav-link active" data-tr="Projeler" data-en="Projects">Projeler</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="projeler.html#devam-eden" data-tr="Devam Eden" data-en="Ongoing">Devam Eden</a></li>
+                        <li><a href="projeler.html#tamamlanmis" data-tr="Tamamlanmış" data-en="Completed">Tamamlanmış</a></li>
+                    </ul>
+                </li>
+                <li><a href="referanslar.html" class="nav-link" data-tr="Referanslar" data-en="References">Referanslar</a></li>
+                <li><a href="iletisim.html" class="nav-link" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+            </ul>
+            <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">EN</button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 data-tr="Projeler" data-en="Projects">Projeler</h1>
+            </div>
+        </section>
+
+        <section id="devam-eden" class="content-section">
+            <div class="container">
+                <h2 data-tr="Devam Eden Projeler" data-en="Ongoing Projects">Devam Eden Projeler</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3 data-tr="Konut Kompleksi A" data-en="Residential Complex A">Konut Kompleksi A</h3>
+                        <p data-tr="Lokasyon: İstanbul" data-en="Location: Istanbul">Lokasyon: İstanbul</p>
+                        <p data-tr="200 daireli modern yaşam alanı projesi" data-en="Modern living space project with 200 apartments">200 daireli modern yaşam alanı projesi</p>
+                        <span class="status ongoing" data-tr="Devam Ediyor" data-en="In Progress">Devam Ediyor</span>
+                    </div>
+                    <div class="project-card">
+                        <h3 data-tr="Alışveriş Merkezi B" data-en="Shopping Mall B">Alışveriş Merkezi B</h3>
+                        <p data-tr="Lokasyon: Ankara" data-en="Location: Ankara">Lokasyon: Ankara</p>
+                        <p data-tr="50.000 m² kapalı alana sahip modern alışveriş merkezi" data-en="Modern shopping mall with 50,000 m² indoor space">50.000 m² kapalı alana sahip modern alışveriş merkezi</p>
+                        <span class="status ongoing" data-tr="Devam Ediyor" data-en="In Progress">Devam Ediyor</span>
+                    </div>
+                    <div class="project-card">
+                        <h3 data-tr="Endüstriyel Tesis C" data-en="Industrial Facility C">Endüstriyel Tesis C</h3>
+                        <p data-tr="Lokasyon: İzmir" data-en="Location: Izmir">Lokasyon: İzmir</p>
+                        <p data-tr="Üretim ve depolama tesisi inşaatı" data-en="Production and storage facility construction">Üretim ve depolama tesisi inşaatı</p>
+                        <span class="status ongoing" data-tr="Devam Ediyor" data-en="In Progress">Devam Ediyor</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tamamlanmis" class="content-section bg-light">
+            <div class="container">
+                <h2 data-tr="Tamamlanmış Projeler" data-en="Completed Projects">Tamamlanmış Projeler</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3 data-tr="Plaza X" data-en="Plaza X">Plaza X</h3>
+                        <p data-tr="Lokasyon: İstanbul" data-en="Location: Istanbul">Lokasyon: İstanbul</p>
+                        <p data-tr="30 katlı ofis binası" data-en="30-story office building">30 katlı ofis binası</p>
+                        <span class="status completed" data-tr="Tamamlandı" data-en="Completed">Tamamlandı</span>
+                    </div>
+                    <div class="project-card">
+                        <h3 data-tr="Konut Sitesi Y" data-en="Residential Site Y">Konut Sitesi Y</h3>
+                        <p data-tr="Lokasyon: Bursa" data-en="Location: Bursa">Lokasyon: Bursa</p>
+                        <p data-tr="150 daireli lüks konut projesi" data-en="Luxury residential project with 150 apartments">150 daireli lüks konut projesi</p>
+                        <span class="status completed" data-tr="Tamamlandı" data-en="Completed">Tamamlandı</span>
+                    </div>
+                    <div class="project-card">
+                        <h3 data-tr="Otel Z" data-en="Hotel Z">Otel Z</h3>
+                        <p data-tr="Lokasyon: Antalya" data-en="Location: Antalya">Lokasyon: Antalya</p>
+                        <p data-tr="5 yıldızlı 200 odalı otel kompleksi" data-en="5-star hotel complex with 200 rooms">5 yıldızlı 200 odalı otel kompleksi</p>
+                        <span class="status completed" data-tr="Tamamlandı" data-en="Completed">Tamamlandı</span>
+                    </div>
+                    <div class="project-card">
+                        <h3 data-tr="İş Merkezi W" data-en="Business Center W">İş Merkezi W</h3>
+                        <p data-tr="Lokasyon: Ankara" data-en="Location: Ankara">Lokasyon: Ankara</p>
+                        <p data-tr="Modern iş merkezi ve konferans salonu" data-en="Modern business center and conference hall">Modern iş merkezi ve konferans salonu</p>
+                        <span class="status completed" data-tr="Tamamlandı" data-en="Completed">Tamamlandı</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Metsis İnşaat. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span></p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

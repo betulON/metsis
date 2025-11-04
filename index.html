@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metsis - Anasayfa</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>METSIS</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active" data-tr="Anasayfa" data-en="Home">Anasayfa</a></li>
+                <li class="dropdown">
+                    <a href="kurumsal.html" class="nav-link" data-tr="Kurumsal" data-en="Corporate">Kurumsal</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="kurumsal.html#sirket" data-tr="Şirket" data-en="Company">Şirket</a></li>
+                        <li><a href="kurumsal.html#kalite" data-tr="Kalite" data-en="Quality">Kalite</a></li>
+                        <li><a href="kurumsal.html#insan" data-tr="İnsan" data-en="People">İnsan</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="projeler.html" class="nav-link" data-tr="Projeler" data-en="Projects">Projeler</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="projeler.html#devam-eden" data-tr="Devam Eden" data-en="Ongoing">Devam Eden</a></li>
+                        <li><a href="projeler.html#tamamlanmis" data-tr="Tamamlanmış" data-en="Completed">Tamamlanmış</a></li>
+                    </ul>
+                </li>
+                <li><a href="referanslar.html" class="nav-link" data-tr="Referanslar" data-en="References">Referanslar</a></li>
+                <li><a href="iletisim.html" class="nav-link" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+            </ul>
+            <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">EN</button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 data-tr="Metsis İnşaat'a Hoş Geldiniz" data-en="Welcome to Metsis Construction">Metsis İnşaat'a Hoş Geldiniz</h1>
+                <p data-tr="Kaliteli ve güvenilir inşaat çözümleri" data-en="Quality and reliable construction solutions">Kaliteli ve güvenilir inşaat çözümleri</p>
+            </div>
+        </section>
+
+        <section class="about-preview">
+            <div class="container">
+                <h2 data-tr="Hakkımızda" data-en="About Us">Hakkımızda</h2>
+                <p data-tr="Metsis İnşaat olarak, yılların deneyimiyle müşterilerimize en iyi hizmeti sunmayı hedefliyoruz." data-en="As Metsis Construction, we aim to provide the best service to our customers with years of experience.">
+                    Metsis İnşaat olarak, yılların deneyimiyle müşterilerimize en iyi hizmeti sunmayı hedefliyoruz.
+                </p>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <h2 data-tr="Hizmetlerimiz" data-en="Our Services">Hizmetlerimiz</h2>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <h3 data-tr="Proje Yönetimi" data-en="Project Management">Proje Yönetimi</h3>
+                        <p data-tr="Profesyonel proje yönetim hizmetleri" data-en="Professional project management services">Profesyonel proje yönetim hizmetleri</p>
+                    </div>
+                    <div class="service-card">
+                        <h3 data-tr="İnşaat" data-en="Construction">İnşaat</h3>
+                        <p data-tr="Kaliteli inşaat ve taahhüt hizmetleri" data-en="Quality construction and contracting services">Kaliteli inşaat ve taahhüt hizmetleri</p>
+                    </div>
+                    <div class="service-card">
+                        <h3 data-tr="Danışmanlık" data-en="Consultancy">Danışmanlık</h3>
+                        <p data-tr="Uzman inşaat danışmanlık hizmetleri" data-en="Expert construction consultancy services">Uzman inşaat danışmanlık hizmetleri</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Metsis İnşaat. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span></p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
