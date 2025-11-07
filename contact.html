@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metsis - Anasayfa</title>
+    <title>Metsis - İletişim</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
                 <h1>METSIS</h1>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link active" data-tr="Anasayfa" data-en="Home">Anasayfa</a></li>
+                <li><a href="index.html" class="nav-link" data-tr="Anasayfa" data-en="Home">Anasayfa</a></li>
                 <li class="dropdown">
                     <a href="corporate.html" class="nav-link" data-tr="Kurumsal" data-en="Corporate">Kurumsal</a>
                     <ul class="dropdown-menu">
@@ -31,7 +31,7 @@
                     </ul>
                 </li>
                 <li><a href="references.html" class="nav-link" data-tr="Referanslar" data-en="References">Referanslar</a></li>
-                <li><a href="contact.html" class="nav-link" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+                <li><a href="contact.html" class="nav-link active" data-tr="İletişim" data-en="Contact">İletişim</a></li>
             </ul>
             <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">EN</button>
             <div class="hamburger">
@@ -44,52 +44,76 @@
 
     <!-- Main Content -->
     <main>
-        <section class="hero">
-            <video class="hero-video" id="heroVideo" autoplay muted playsinline>
-                <source src="videos/metsis-intro.mp4" type="video/mp4">
-                <source src="videos/metsis-intro.webm" type="video/webm">
-            </video>
-            
-            <!-- Slider (hidden initially) -->
-            <div class="hero-slider" id="heroSlider" style="display: none;">
-                <div class="slider-track">
-                    <div class="slide active">
-                        <img src="images/project1.png" alt="Project 1">
-                        <div class="slide-overlay">
-                            <button class="slide-btn" data-tr="İNCELE" data-en="EXPLORE">İNCELE</button>
+        <section class="page-header">
+            <div class="container">
+                <h1 data-tr="İletişim" data-en="Contact">İletişim</h1>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h2 data-tr="İletişim Bilgileri" data-en="Contact Information">İletişim Bilgileri</h2>
+                        <div class="info-item">
+                            <h3 data-tr="Adres" data-en="Address">Adres</h3>
+                            <p>Metsis İnşaat Taahhüt Ltd. Şti.<br>
+                            Örnek Mahallesi, İnşaat Caddesi No: 123<br>
+                            Çankaya / Ankara, Türkiye</p>
+                        </div>
+                        <div class="info-item">
+                            <h3 data-tr="Telefon" data-en="Phone">Telefon</h3>
+                            <p>+90 (312) 123 45 67<br>
+                            +90 (312) 123 45 68</p>
+                        </div>
+                        <div class="info-item">
+                            <h3 data-tr="E-posta" data-en="Email">E-posta</h3>
+                            <p>info@metsis.com.tr<br>
+                            iletisim@metsis.com.tr</p>
+                        </div>
+                        <div class="info-item">
+                            <h3 data-tr="Çalışma Saatleri" data-en="Working Hours">Çalışma Saatleri</h3>
+                            <p data-tr="Pazartesi - Cuma: 09:00 - 18:00" data-en="Monday - Friday: 09:00 - 18:00">Pazartesi - Cuma: 09:00 - 18:00</p>
+                            <p data-tr="Cumartesi - Pazar: Kapalı" data-en="Saturday - Sunday: Closed">Cumartesi - Pazar: Kapalı</p>
                         </div>
                     </div>
-                    <div class="slide">
-                        <img src="images/project2.png" alt="Project 2">
-                        <div class="slide-overlay">
-                            <button class="slide-btn" data-tr="İNCELE" data-en="EXPLORE">İNCELE</button>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="images/project3.png" alt="Project 3">
-                        <div class="slide-overlay">
-                            <button class="slide-btn" data-tr="İNCELE" data-en="EXPLORE">İNCELE</button>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="images/project4.png" alt="Project 4">
-                        <div class="slide-overlay">
-                            <button class="slide-btn" data-tr="İNCELE" data-en="EXPLORE">İNCELE</button>
-                        </div>
+
+                    <div class="contact-form">
+                        <h2 data-tr="Bize Ulaşın" data-en="Get in Touch">Bize Ulaşın</h2>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name" data-tr="Ad Soyad" data-en="Full Name">Ad Soyad</label>
+                                <input type="text" id="name" name="name" required placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" data-tr="E-posta" data-en="Email">E-posta</label>
+                                <input type="email" id="email" name="email" required placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" data-tr="Telefon" data-en="Phone">Telefon</label>
+                                <input type="tel" id="phone" name="phone" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject" data-tr="Konu" data-en="Subject">Konu</label>
+                                <input type="text" id="subject" name="subject" required placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="message" data-tr="Mesajınız" data-en="Your Message">Mesajınız</label>
+                                <textarea id="message" name="message" rows="5" required placeholder=""></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn" data-tr="Gönder" data-en="Send">Gönder</button>
+                        </form>
                     </div>
                 </div>
-                
-                <!-- Slider Navigation -->
-                <button class="slider-nav prev" id="prevSlide">‹</button>
-                <button class="slider-nav next" id="nextSlide">›</button>
-                
-                <!-- Slider Dots -->
-                <div class="slider-dots" id="sliderDots"></div>
             </div>
-            
-            <div class="hero-content" id="heroContent">
-                <h1 data-tr="Metsis İnşaat'a Hoş Geldiniz" data-en="Welcome to Metsis Construction">Metsis İnşaat'a Hoş Geldiniz</h1>
-                <p data-tr="Kaliteli ve güvenilir inşaat çözümleri" data-en="Quality and reliable construction solutions">Kaliteli ve güvenilir inşaat çözümleri</p>
+        </section>
+
+        <section class="map-section">
+            <div class="container">
+                <h2 data-tr="Konum" data-en="Location">Konum</h2>
+                <div class="map-placeholder">
+                    <p data-tr="Harita (Google Maps entegrasyonu için hazır)" data-en="Map (Ready for Google Maps integration)">Harita (Google Maps entegrasyonu için hazır)</p>
+                </div>
             </div>
         </section>
     </main>

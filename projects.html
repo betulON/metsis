@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metsis - Anasayfa</title>
+    <title>Metsis - Projeler</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
                 <h1>METSIS</h1>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link active" data-tr="Anasayfa" data-en="Home">Anasayfa</a></li>
+                <li><a href="index.html" class="nav-link" data-tr="Anasayfa" data-en="Home">Anasayfa</a></li>
                 <li class="dropdown">
                     <a href="corporate.html" class="nav-link" data-tr="Kurumsal" data-en="Corporate">Kurumsal</a>
                     <ul class="dropdown-menu">
@@ -24,7 +24,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="projects.html" class="nav-link" data-tr="Projeler" data-en="Projects">Projeler</a>
+                    <a href="projects.html" class="nav-link active" data-tr="Projeler" data-en="Projects">Projeler</a>
                     <ul class="dropdown-menu">
                         <li><a href="projects.html#ongoing" data-tr="Devam Eden" data-en="Ongoing">Devam Eden</a></li>
                         <li><a href="projects.html#completed" data-tr="Tamamlanmış" data-en="Completed">Tamamlanmış</a></li>
@@ -44,52 +44,67 @@
 
     <!-- Main Content -->
     <main>
-        <section class="hero">
-            <video class="hero-video" id="heroVideo" autoplay muted playsinline>
-                <source src="videos/metsis-intro.mp4" type="video/mp4">
-                <source src="videos/metsis-intro.webm" type="video/webm">
-            </video>
-            
-            <!-- Slider (hidden initially) -->
-            <div class="hero-slider" id="heroSlider" style="display: none;">
-                <div class="slider-track">
-                    <div class="slide active">
-                        <img src="images/project1.png" alt="Project 1">
-                        <div class="slide-overlay">
-                            <button class="slide-btn" data-tr="İNCELE" data-en="EXPLORE">İNCELE</button>
-                        </div>
+        <section class="page-header">
+            <div class="container">
+                <h1 data-tr="Projeler" data-en="Projects">Projeler</h1>
+            </div>
+        </section>
+
+        <section id="ongoing" class="content-section">
+            <div class="container">
+                <h2 data-tr="Devam Eden Projeler" data-en="Ongoing Projects">Devam Eden Projeler</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3 data-tr="Konut Kompleksi A" data-en="Residential Complex A">Konut Kompleksi A</h3>
+                        <p data-tr="Lokasyon: İstanbul" data-en="Location: Istanbul">Lokasyon: İstanbul</p>
+                        <p data-tr="200 daireli modern yaşam alanı projesi" data-en="Modern living space project with 200 apartments">200 daireli modern yaşam alanı projesi</p>
+                        <span class="status ongoing" data-tr="Devam Ediyor" data-en="In Progress">Devam Ediyor</span>
                     </div>
-                    <div class="slide">
-                        <img src="images/project2.png" alt="Project 2">
-                        <div class="slide-overlay">
-                            <button class="slide-btn" data-tr="İNCELE" data-en="EXPLORE">İNCELE</button>
-                        </div>
+                    <div class="project-card">
+                        <h3 data-tr="Alışveriş Merkezi B" data-en="Shopping Mall B">Alışveriş Merkezi B</h3>
+                        <p data-tr="Lokasyon: Ankara" data-en="Location: Ankara">Lokasyon: Ankara</p>
+                        <p data-tr="50.000 m² kapalı alana sahip modern alışveriş merkezi" data-en="Modern shopping mall with 50,000 m² indoor space">50.000 m² kapalı alana sahip modern alışveriş merkezi</p>
+                        <span class="status ongoing" data-tr="Devam Ediyor" data-en="In Progress">Devam Ediyor</span>
                     </div>
-                    <div class="slide">
-                        <img src="images/project3.png" alt="Project 3">
-                        <div class="slide-overlay">
-                            <button class="slide-btn" data-tr="İNCELE" data-en="EXPLORE">İNCELE</button>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="images/project4.png" alt="Project 4">
-                        <div class="slide-overlay">
-                            <button class="slide-btn" data-tr="İNCELE" data-en="EXPLORE">İNCELE</button>
-                        </div>
+                    <div class="project-card">
+                        <h3 data-tr="Endüstriyel Tesis C" data-en="Industrial Facility C">Endüstriyel Tesis C</h3>
+                        <p data-tr="Lokasyon: İzmir" data-en="Location: Izmir">Lokasyon: İzmir</p>
+                        <p data-tr="Üretim ve depolama tesisi inşaatı" data-en="Production and storage facility construction">Üretim ve depolama tesisi inşaatı</p>
+                        <span class="status ongoing" data-tr="Devam Ediyor" data-en="In Progress">Devam Ediyor</span>
                     </div>
                 </div>
-                
-                <!-- Slider Navigation -->
-                <button class="slider-nav prev" id="prevSlide">‹</button>
-                <button class="slider-nav next" id="nextSlide">›</button>
-                
-                <!-- Slider Dots -->
-                <div class="slider-dots" id="sliderDots"></div>
             </div>
-            
-            <div class="hero-content" id="heroContent">
-                <h1 data-tr="Metsis İnşaat'a Hoş Geldiniz" data-en="Welcome to Metsis Construction">Metsis İnşaat'a Hoş Geldiniz</h1>
-                <p data-tr="Kaliteli ve güvenilir inşaat çözümleri" data-en="Quality and reliable construction solutions">Kaliteli ve güvenilir inşaat çözümleri</p>
+        </section>
+
+        <section id="completed" class="content-section bg-light">
+            <div class="container">
+                <h2 data-tr="Tamamlanmış Projeler" data-en="Completed Projects">Tamamlanmış Projeler</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3 data-tr="Plaza X" data-en="Plaza X">Plaza X</h3>
+                        <p data-tr="Lokasyon: İstanbul" data-en="Location: Istanbul">Lokasyon: İstanbul</p>
+                        <p data-tr="30 katlı ofis binası" data-en="30-story office building">30 katlı ofis binası</p>
+                        <span class="status completed" data-tr="Tamamlandı" data-en="Completed">Tamamlandı</span>
+                    </div>
+                    <div class="project-card">
+                        <h3 data-tr="Konut Sitesi Y" data-en="Residential Site Y">Konut Sitesi Y</h3>
+                        <p data-tr="Lokasyon: Bursa" data-en="Location: Bursa">Lokasyon: Bursa</p>
+                        <p data-tr="150 daireli lüks konut projesi" data-en="Luxury residential project with 150 apartments">150 daireli lüks konut projesi</p>
+                        <span class="status completed" data-tr="Tamamlandı" data-en="Completed">Tamamlandı</span>
+                    </div>
+                    <div class="project-card">
+                        <h3 data-tr="Otel Z" data-en="Hotel Z">Otel Z</h3>
+                        <p data-tr="Lokasyon: Antalya" data-en="Location: Antalya">Lokasyon: Antalya</p>
+                        <p data-tr="5 yıldızlı 200 odalı otel kompleksi" data-en="5-star hotel complex with 200 rooms">5 yıldızlı 200 odalı otel kompleksi</p>
+                        <span class="status completed" data-tr="Tamamlandı" data-en="Completed">Tamamlandı</span>
+                    </div>
+                    <div class="project-card">
+                        <h3 data-tr="İş Merkezi W" data-en="Business Center W">İş Merkezi W</h3>
+                        <p data-tr="Lokasyon: Ankara" data-en="Location: Ankara">Lokasyon: Ankara</p>
+                        <p data-tr="Modern iş merkezi ve konferans salonu" data-en="Modern business center and conference hall">Modern iş merkezi ve konferans salonu</p>
+                        <span class="status completed" data-tr="Tamamlandı" data-en="Completed">Tamamlandı</span>
+                    </div>
+                </div>
             </div>
         </section>
     </main>

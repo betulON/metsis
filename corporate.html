@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metsis - Anasayfa</title>
+    <title>Metsis - Kurumsal</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,9 +14,9 @@
                 <h1>METSIS</h1>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link active" data-tr="Anasayfa" data-en="Home">Anasayfa</a></li>
+                <li><a href="index.html" class="nav-link" data-tr="Anasayfa" data-en="Home">Anasayfa</a></li>
                 <li class="dropdown">
-                    <a href="corporate.html" class="nav-link" data-tr="Kurumsal" data-en="Corporate">Kurumsal</a>
+                    <a href="corporate.html" class="nav-link active" data-tr="Kurumsal" data-en="Corporate">Kurumsal</a>
                     <ul class="dropdown-menu">
                         <li><a href="corporate.html#company" data-tr="Şirket" data-en="Company">Şirket</a></li>
                         <li><a href="corporate.html#quality" data-tr="Kalite" data-en="Quality">Kalite</a></li>
@@ -44,52 +44,52 @@
 
     <!-- Main Content -->
     <main>
-        <section class="hero">
-            <video class="hero-video" id="heroVideo" autoplay muted playsinline>
-                <source src="videos/metsis-intro.mp4" type="video/mp4">
-                <source src="videos/metsis-intro.webm" type="video/webm">
-            </video>
-            
-            <!-- Slider (hidden initially) -->
-            <div class="hero-slider" id="heroSlider" style="display: none;">
-                <div class="slider-track">
-                    <div class="slide active">
-                        <img src="images/project1.png" alt="Project 1">
-                        <div class="slide-overlay">
-                            <button class="slide-btn" data-tr="İNCELE" data-en="EXPLORE">İNCELE</button>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="images/project2.png" alt="Project 2">
-                        <div class="slide-overlay">
-                            <button class="slide-btn" data-tr="İNCELE" data-en="EXPLORE">İNCELE</button>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="images/project3.png" alt="Project 3">
-                        <div class="slide-overlay">
-                            <button class="slide-btn" data-tr="İNCELE" data-en="EXPLORE">İNCELE</button>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="images/project4.png" alt="Project 4">
-                        <div class="slide-overlay">
-                            <button class="slide-btn" data-tr="İNCELE" data-en="EXPLORE">İNCELE</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Slider Navigation -->
-                <button class="slider-nav prev" id="prevSlide">‹</button>
-                <button class="slider-nav next" id="nextSlide">›</button>
-                
-                <!-- Slider Dots -->
-                <div class="slider-dots" id="sliderDots"></div>
+        <section class="page-header">
+            <div class="container">
+                <h1 data-tr="Kurumsal" data-en="Corporate">Kurumsal</h1>
             </div>
-            
-            <div class="hero-content" id="heroContent">
-                <h1 data-tr="Metsis İnşaat'a Hoş Geldiniz" data-en="Welcome to Metsis Construction">Metsis İnşaat'a Hoş Geldiniz</h1>
-                <p data-tr="Kaliteli ve güvenilir inşaat çözümleri" data-en="Quality and reliable construction solutions">Kaliteli ve güvenilir inşaat çözümleri</p>
+        </section>
+
+        <section id="company" class="content-section">
+            <div class="container">
+                <h2 data-tr="Şirket" data-en="Company">Şirket</h2>
+                <p data-tr="Metsis İnşaat, inşaat sektöründe yılların deneyimi ile müşterilerine en kaliteli hizmeti sunmayı ilke edinmiş bir firmadır. Kurulduğumuz günden bu yana kalite, güvenilirlik ve müşteri memnuniyeti önceliğimizdir." 
+                   data-en="Metsis Construction is a company that has adopted the principle of providing the highest quality service to its customers with years of experience in the construction industry. Since the day we were established, quality, reliability and customer satisfaction have been our priority.">
+                    Metsis İnşaat, inşaat sektöründe yılların deneyimi ile müşterilerine en kaliteli hizmeti sunmayı ilke edinmiş bir firmadır. Kurulduğumuz günden bu yana kalite, güvenilirlik ve müşteri memnuniyeti önceliğimizdir.
+                </p>
+                <p data-tr="Modern teknoloji ve uzman kadromuz ile projelerinizi baştan sona yönetiyor, güvenle teslim ediyoruz." 
+                   data-en="With our modern technology and expert staff, we manage your projects from start to finish and deliver them with confidence.">
+                    Modern teknoloji ve uzman kadromuz ile projelerinizi baştan sona yönetiyor, güvenle teslim ediyoruz.
+                </p>
+            </div>
+        </section>
+
+        <section id="quality" class="content-section bg-light">
+            <div class="container">
+                <h2 data-tr="Kalite" data-en="Quality">Kalite</h2>
+                <p data-tr="Kalite politikamız, ulusal ve uluslararası standartlara uygun, çevre dostu ve sürdürülebilir inşaat çözümleri üretmektir." 
+                   data-en="Our quality policy is to produce environmentally friendly and sustainable construction solutions in accordance with national and international standards.">
+                    Kalite politikamız, ulusal ve uluslararası standartlara uygun, çevre dostu ve sürdürülebilir inşaat çözümleri üretmektir.
+                </p>
+                <ul>
+                    <li data-tr="ISO 9001 Kalite Yönetim Sistemi" data-en="ISO 9001 Quality Management System">ISO 9001 Kalite Yönetim Sistemi</li>
+                    <li data-tr="ISO 14001 Çevre Yönetim Sistemi" data-en="ISO 14001 Environmental Management System">ISO 14001 Çevre Yönetim Sistemi</li>
+                    <li data-tr="ISO 45001 İş Sağlığı ve Güvenliği Yönetim Sistemi" data-en="ISO 45001 Occupational Health and Safety Management System">ISO 45001 İş Sağlığı ve Güvenliği Yönetim Sistemi</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="people" class="content-section">
+            <div class="container">
+                <h2 data-tr="İnsan" data-en="People">İnsan</h2>
+                <p data-tr="Metsis İnşaat olarak en büyük değerimiz insanlarımızdır. Uzman ve deneyimli ekibimiz, projelerimizin başarısının temelidir." 
+                   data-en="As Metsis Construction, our greatest value is our people. Our expert and experienced team is the foundation of the success of our projects.">
+                    Metsis İnşaat olarak en büyük değerimiz insanlarımızdır. Uzman ve deneyimli ekibimiz, projelerimizin başarısının temelidir.
+                </p>
+                <p data-tr="Çalışanlarımıza sürekli eğitim ve gelişim fırsatları sunarak, sektörün en iyi profesyonellerini yetiştirmeyi hedefliyoruz." 
+                   data-en="We aim to train the best professionals in the industry by providing continuous training and development opportunities to our employees.">
+                    Çalışanlarımıza sürekli eğitim ve gelişim fırsatları sunarak, sektörün en iyi profesyonellerini yetiştirmeyi hedefliyoruz.
+                </p>
             </div>
         </section>
     </main>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metsis - Anasayfa</title>
+    <title>Metsis - Referanslar</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
                 <h1>METSIS</h1>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link active" data-tr="Anasayfa" data-en="Home">Anasayfa</a></li>
+                <li><a href="index.html" class="nav-link" data-tr="Anasayfa" data-en="Home">Anasayfa</a></li>
                 <li class="dropdown">
                     <a href="corporate.html" class="nav-link" data-tr="Kurumsal" data-en="Corporate">Kurumsal</a>
                     <ul class="dropdown-menu">
@@ -30,7 +30,7 @@
                         <li><a href="projects.html#completed" data-tr="Tamamlanmış" data-en="Completed">Tamamlanmış</a></li>
                     </ul>
                 </li>
-                <li><a href="references.html" class="nav-link" data-tr="Referanslar" data-en="References">Referanslar</a></li>
+                <li><a href="references.html" class="nav-link active" data-tr="Referanslar" data-en="References">Referanslar</a></li>
                 <li><a href="contact.html" class="nav-link" data-tr="İletişim" data-en="Contact">İletişim</a></li>
             </ul>
             <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">EN</button>
@@ -44,52 +44,82 @@
 
     <!-- Main Content -->
     <main>
-        <section class="hero">
-            <video class="hero-video" id="heroVideo" autoplay muted playsinline>
-                <source src="videos/metsis-intro.mp4" type="video/mp4">
-                <source src="videos/metsis-intro.webm" type="video/webm">
-            </video>
-            
-            <!-- Slider (hidden initially) -->
-            <div class="hero-slider" id="heroSlider" style="display: none;">
-                <div class="slider-track">
-                    <div class="slide active">
-                        <img src="images/project1.png" alt="Project 1">
-                        <div class="slide-overlay">
-                            <button class="slide-btn" data-tr="İNCELE" data-en="EXPLORE">İNCELE</button>
-                        </div>
+        <section class="page-header">
+            <div class="container">
+                <h1 data-tr="Referanslar" data-en="References">Referanslar</h1>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <p class="intro-text" data-tr="Yıllar içinde birçok prestijli proje ve müşteri ile çalışma fırsatı bulduk. İşte bazı referanslarımız:" 
+                   data-en="Over the years, we have had the opportunity to work with many prestigious projects and clients. Here are some of our references:">
+                    Yıllar içinde birçok prestijli proje ve müşteri ile çalışma fırsatı bulduk. İşte bazı referanslarımız:
+                </p>
+
+                <div class="reference-grid">
+                    <div class="reference-card">
+                        <h3 data-tr="Kamu Kurumları" data-en="Public Institutions">Kamu Kurumları</h3>
+                        <ul>
+                            <li data-tr="T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı" data-en="Ministry of Environment, Urbanization and Climate Change">T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı</li>
+                            <li data-tr="Ankara Büyükşehir Belediyesi" data-en="Ankara Metropolitan Municipality">Ankara Büyükşehir Belediyesi</li>
+                            <li data-tr="İstanbul Büyükşehir Belediyesi" data-en="Istanbul Metropolitan Municipality">İstanbul Büyükşehir Belediyesi</li>
+                            <li data-tr="İzmir Büyükşehir Belediyesi" data-en="Izmir Metropolitan Municipality">İzmir Büyükşehir Belediyesi</li>
+                        </ul>
                     </div>
-                    <div class="slide">
-                        <img src="images/project2.png" alt="Project 2">
-                        <div class="slide-overlay">
-                            <button class="slide-btn" data-tr="İNCELE" data-en="EXPLORE">İNCELE</button>
-                        </div>
+
+                    <div class="reference-card">
+                        <h3 data-tr="Özel Sektör" data-en="Private Sector">Özel Sektör</h3>
+                        <ul>
+                            <li data-tr="ABC Holding A.Ş." data-en="ABC Holding Inc.">ABC Holding A.Ş.</li>
+                            <li data-tr="XYZ Gayrimenkul Yatırım Ortaklığı" data-en="XYZ Real Estate Investment Trust">XYZ Gayrimenkul Yatırım Ortaklığı</li>
+                            <li data-tr="DEF İnşaat ve Ticaret Ltd. Şti." data-en="DEF Construction and Trade Ltd.">DEF İnşaat ve Ticaret Ltd. Şti.</li>
+                            <li data-tr="GHI Turizm İşletmeleri A.Ş." data-en="GHI Tourism Enterprises Inc.">GHI Turizm İşletmeleri A.Ş.</li>
+                        </ul>
                     </div>
-                    <div class="slide">
-                        <img src="images/project3.png" alt="Project 3">
-                        <div class="slide-overlay">
-                            <button class="slide-btn" data-tr="İNCELE" data-en="EXPLORE">İNCELE</button>
-                        </div>
+
+                    <div class="reference-card">
+                        <h3 data-tr="Uluslararası" data-en="International">Uluslararası</h3>
+                        <ul>
+                            <li data-tr="Global Construction Partners" data-en="Global Construction Partners">Global Construction Partners</li>
+                            <li data-tr="European Development Bank" data-en="European Development Bank">European Development Bank</li>
+                            <li data-tr="International Real Estate Corp." data-en="International Real Estate Corp.">International Real Estate Corp.</li>
+                            <li data-tr="Asian Infrastructure Group" data-en="Asian Infrastructure Group">Asian Infrastructure Group</li>
+                        </ul>
                     </div>
-                    <div class="slide">
-                        <img src="images/project4.png" alt="Project 4">
-                        <div class="slide-overlay">
-                            <button class="slide-btn" data-tr="İNCELE" data-en="EXPLORE">İNCELE</button>
-                        </div>
+
+                    <div class="reference-card">
+                        <h3 data-tr="Eğitim Kurumları" data-en="Educational Institutions">Eğitim Kurumları</h3>
+                        <ul>
+                            <li data-tr="Ankara Üniversitesi" data-en="Ankara University">Ankara Üniversitesi</li>
+                            <li data-tr="Orta Doğu Teknik Üniversitesi" data-en="Middle East Technical University">Orta Doğu Teknik Üniversitesi</li>
+                            <li data-tr="Bilkent Üniversitesi" data-en="Bilkent University">Bilkent Üniversitesi</li>
+                            <li data-tr="Hacettepe Üniversitesi" data-en="Hacettepe University">Hacettepe Üniversitesi</li>
+                        </ul>
                     </div>
                 </div>
-                
-                <!-- Slider Navigation -->
-                <button class="slider-nav prev" id="prevSlide">‹</button>
-                <button class="slider-nav next" id="nextSlide">›</button>
-                
-                <!-- Slider Dots -->
-                <div class="slider-dots" id="sliderDots"></div>
             </div>
-            
-            <div class="hero-content" id="heroContent">
-                <h1 data-tr="Metsis İnşaat'a Hoş Geldiniz" data-en="Welcome to Metsis Construction">Metsis İnşaat'a Hoş Geldiniz</h1>
-                <p data-tr="Kaliteli ve güvenilir inşaat çözümleri" data-en="Quality and reliable construction solutions">Kaliteli ve güvenilir inşaat çözümleri</p>
+        </section>
+
+        <section class="testimonials bg-light">
+            <div class="container">
+                <h2 data-tr="Müşteri Görüşleri" data-en="Client Testimonials">Müşteri Görüşleri</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p data-tr="Metsis İnşaat ile çalışmak büyük bir keyifti. Profesyonel ekipleri ve kaliteli işçilikleri ile projemizi zamanında ve bütçe dahilinde tamamladılar." 
+                           data-en="It was a great pleasure to work with Metsis Construction. They completed our project on time and within budget with their professional teams and quality workmanship.">
+                            "Metsis İnşaat ile çalışmak büyük bir keyifti. Profesyonel ekipleri ve kaliteli işçilikleri ile projemizi zamanında ve bütçe dahilinde tamamladılar."
+                        </p>
+                        <p class="author">- <span data-tr="Ahmet Yılmaz, ABC Holding" data-en="Ahmet Yılmaz, ABC Holding">Ahmet Yılmaz, ABC Holding</span></p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p data-tr="Güvenilir ve deneyimli bir firma. Projelerimizde her zaman ilk tercihimiz Metsis İnşaat." 
+                           data-en="A reliable and experienced company. Metsis Construction is always our first choice in our projects.">
+                            "Güvenilir ve deneyimli bir firma. Projelerimizde her zaman ilk tercihimiz Metsis İnşaat."
+                        </p>
+                        <p class="author">- <span data-tr="Ayşe Demir, XYZ Gayrimenkul" data-en="Ayşe Demir, XYZ Real Estate">Ayşe Demir, XYZ Gayrimenkul</span></p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
