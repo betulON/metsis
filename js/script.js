@@ -101,14 +101,23 @@ function initMobileMenu() {
             navMenu.classList.toggle('active');
         });
         
-        // Handle dropdown clicks on mobile
+        // Handle dropdown hover on mobile
         dropdowns.forEach(dropdown => {
             const dropdownLink = dropdown.querySelector('.nav-link');
-            if (dropdownLink) {
-                dropdownLink.addEventListener('click', function(e) {
+            const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+            
+            if (dropdownLink && dropdownMenu) {
+                // Mouse enter event
+                dropdown.addEventListener('mouseenter', function() {
                     if (window.innerWidth <= 968) {
-                        e.preventDefault();
-                        dropdown.classList.toggle('active');
+                        dropdown.classList.add('active');
+                    }
+                });
+                
+                // Mouse leave event
+                dropdown.addEventListener('mouseleave', function() {
+                    if (window.innerWidth <= 968) {
+                        dropdown.classList.remove('active');
                     }
                 });
             }
@@ -325,4 +334,189 @@ function initAnimations() {
             this.style.transform = 'translateY(0)';
         });
     });
+}
+
+// Project Modal Functionality
+const projectData = {
+    project1: {
+        title: { tr: 'Konut Kompleksi A', en: 'Residential Complex A' },
+        location: { tr: 'Türkiye, İstanbul', en: 'Turkey, Istanbul' },
+        client: { tr: 'Özel Yatırımcı', en: 'Private Investor' },
+        contractType: { tr: 'Anahtar Teslim', en: 'Turnkey' },
+        startDate: '2023',
+        completionDate: '2025',
+        capacity: { tr: '200 daire', en: '200 apartments' },
+        area: '45,000 m²',
+        images: ['images/project1.png', 'images/project2.png', 'images/project3.png']
+    },
+    project2: {
+        title: { tr: 'Alışveriş Merkezi B', en: 'Shopping Mall B' },
+        location: { tr: 'Türkiye, Ankara', en: 'Turkey, Ankara' },
+        client: { tr: 'ABC Holding', en: 'ABC Holding' },
+        contractType: { tr: 'Tasarım & İnşaat', en: 'Design & Build' },
+        startDate: '2022',
+        completionDate: '2024',
+        capacity: { tr: '150 mağaza', en: '150 stores' },
+        area: '50,000 m²',
+        images: ['images/project2.png', 'images/project1.png', 'images/project4.png']
+    },
+    project3: {
+        title: { tr: 'Endüstriyel Tesis C', en: 'Industrial Facility C' },
+        location: { tr: 'Türkiye, İzmir', en: 'Turkey, Izmir' },
+        client: { tr: 'XYZ Sanayi', en: 'XYZ Industry' },
+        contractType: { tr: 'Anahtar Teslim', en: 'Turnkey' },
+        startDate: '2023',
+        completionDate: { tr: 'Devam Ediyor', en: 'In Progress' },
+        capacity: { tr: '5,000 ton/yıl', en: '5,000 tons/year' },
+        area: '30,000 m²',
+        images: ['images/project3.png', 'images/project4.png', 'images/project1.png']
+    },
+    project4: {
+        title: { tr: 'Plaza X', en: 'Plaza X' },
+        location: { tr: 'Türkiye, İstanbul', en: 'Turkey, Istanbul' },
+        client: { tr: 'Belediye', en: 'Municipality' },
+        contractType: { tr: 'Kamu İhalesi', en: 'Public Tender' },
+        startDate: '2020',
+        completionDate: '2022',
+        capacity: { tr: '30 kat', en: '30 floors' },
+        area: '25,000 m²',
+        images: ['images/project4.png', 'images/project2.png', 'images/project3.png']
+    },
+    project5: {
+        title: { tr: 'Konut Sitesi Y', en: 'Residential Site Y' },
+        location: { tr: 'Türkiye, Bursa', en: 'Turkey, Bursa' },
+        client: { tr: 'Özel Yatırımcı', en: 'Private Investor' },
+        contractType: { tr: 'Anahtar Teslim', en: 'Turnkey' },
+        startDate: '2019',
+        completionDate: '2021',
+        capacity: { tr: '150 daire', en: '150 apartments' },
+        area: '35,000 m²',
+        images: ['images/project1.png', 'images/project3.png', 'images/project4.png']
+    },
+    project6: {
+        title: { tr: 'Otel Z', en: 'Hotel Z' },
+        location: { tr: 'Türkiye, Antalya', en: 'Turkey, Antalya' },
+        client: { tr: 'Turizm A.Ş.', en: 'Tourism Inc.' },
+        contractType: { tr: 'Tasarım & İnşaat', en: 'Design & Build' },
+        startDate: '2018',
+        completionDate: '2020',
+        capacity: { tr: '200 oda', en: '200 rooms' },
+        area: '40,000 m²',
+        images: ['images/project2.png', 'images/project4.png', 'images/project1.png']
+    },
+    project7: {
+        title: { tr: 'İş Merkezi W', en: 'Business Center W' },
+        location: { tr: 'Türkiye, Ankara', en: 'Turkey, Ankara' },
+        client: { tr: 'Kamu Kurumu', en: 'Public Institution' },
+        contractType: { tr: 'Kamu İhalesi', en: 'Public Tender' },
+        startDate: '2019',
+        completionDate: '2021',
+        capacity: { tr: '5,000 kişi', en: '5,000 people' },
+        area: '60,000 m²',
+        images: ['images/project3.png', 'images/project1.png', 'images/project2.png']
+    }
+};
+
+function initProjectModal() {
+    const modal = document.getElementById('projectModal');
+    const modalClose = document.querySelector('.modal-close');
+    const projectCards = document.querySelectorAll('.project-card[data-project]');
+    let currentSlide = 0;
+    let currentImages = [];
+
+    // Open modal when project card is clicked
+    projectCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const projectId = this.getAttribute('data-project');
+            const project = projectData[projectId];
+            if (project) {
+                openModal(project);
+            }
+        });
+    });
+
+    // Close modal
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Slider controls
+    const prevBtn = document.querySelector('.modal-slider-btn.prev');
+    const nextBtn = document.querySelector('.modal-slider-btn.next');
+    
+    prevBtn.addEventListener('click', () => changeSlide(-1));
+    nextBtn.addEventListener('click', () => changeSlide(1));
+
+    function openModal(project) {
+        const lang = currentLang || 'tr';
+        
+        // Set project details
+        document.getElementById('modalProjectTitle').textContent = project.title[lang];
+        document.getElementById('modalLocation').textContent = project.location[lang] || project.location;
+        document.getElementById('modalClient').textContent = project.client[lang] || project.client;
+        document.getElementById('modalContractType').textContent = project.contractType[lang] || project.contractType;
+        document.getElementById('modalStartDate').textContent = project.startDate;
+        document.getElementById('modalCompletionDate').textContent = project.completionDate[lang] || project.completionDate;
+        document.getElementById('modalCapacity').textContent = project.capacity[lang] || project.capacity;
+        document.getElementById('modalArea').textContent = project.area;
+
+        // Set images
+        currentImages = project.images;
+        const sliderContainer = document.querySelector('.modal-slider-container');
+        sliderContainer.innerHTML = '';
+        currentImages.forEach(imgSrc => {
+            const img = document.createElement('img');
+            img.src = imgSrc;
+            img.alt = project.title[lang];
+            sliderContainer.appendChild(img);
+        });
+
+        currentSlide = 0;
+        updateSlider();
+
+        // Show modal
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function changeSlide(direction) {
+        currentSlide += direction;
+        if (currentSlide < 0) {
+            currentSlide = currentImages.length - 1;
+        } else if (currentSlide >= currentImages.length) {
+            currentSlide = 0;
+        }
+        updateSlider();
+    }
+
+    function updateSlider() {
+        const sliderContainer = document.querySelector('.modal-slider-container');
+        sliderContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (modal.classList.contains('active')) {
+            if (e.key === 'Escape') {
+                closeModal();
+            } else if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        }
+    });
+}
+
+// Initialize project modal if on projects page
+if (document.querySelector('.project-card[data-project]')) {
+    initProjectModal();
 }
