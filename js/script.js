@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
         switchToTurkish();
     }
     
-    // Update button text
-    updateLangButton();
+    // Update language switcher UI
+    updateLangSwitcher();
     
     // Mobile menu functionality
     initMobileMenu();
@@ -23,14 +23,14 @@ document.addEventListener('DOMContentLoaded', function() {
     initAnimations();
 });
 
-// Toggle language
-function toggleLanguage() {
-    if (currentLang === 'tr') {
+// Switch language function (called from HTML onclick)
+function switchLanguage(lang) {
+    if (lang === 'en') {
         switchToEnglish();
     } else {
         switchToTurkish();
     }
-    updateLangButton();
+    updateLangSwitcher();
 }
 
 // Switch to English
@@ -77,12 +77,17 @@ function switchToTurkish() {
     });
 }
 
-// Update language button text
-function updateLangButton() {
-    const langBtn = document.getElementById('langBtn');
-    if (langBtn) {
-        langBtn.textContent = currentLang === 'tr' ? 'EN' : 'TR';
-    }
+// Update language switcher UI
+function updateLangSwitcher() {
+    const langOptions = document.querySelectorAll('.lang-option');
+    langOptions.forEach(option => {
+        const lang = option.getAttribute('data-lang');
+        if (lang === currentLang) {
+            option.classList.add('active');
+        } else {
+            option.classList.remove('active');
+        }
+    });
 }
 
 // Mobile menu functionality

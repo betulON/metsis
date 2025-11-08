@@ -6,7 +6,7 @@
     <title>Metsis - Referanslar</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="references-page">
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
@@ -33,7 +33,11 @@
                 <li><a href="references.html" class="nav-link active" data-tr="Referanslar" data-en="References">Referanslar</a></li>
                 <li><a href="contact.html" class="nav-link" data-tr="İletişim" data-en="Contact">İletişim</a></li>
             </ul>
-            <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">EN</button>
+            <div class="lang-switcher" id="langSwitcher">
+                <span class="lang-option active" data-lang="tr" onclick="switchLanguage('tr')">TR</span>
+                <span class="lang-separator">/</span>
+                <span class="lang-option" data-lang="en" onclick="switchLanguage('en')">EN</span>
+            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>

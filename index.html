@@ -33,7 +33,11 @@
                 <li><a href="references.html" class="nav-link" data-tr="Referanslar" data-en="References">Referanslar</a></li>
                 <li><a href="contact.html" class="nav-link" data-tr="İletişim" data-en="Contact">İletişim</a></li>
             </ul>
-            <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">EN</button>
+            <div class="lang-switcher" id="langSwitcher">
+                <span class="lang-option active" data-lang="tr" onclick="switchLanguage('tr')">TR</span>
+                <span class="lang-separator">/</span>
+                <span class="lang-option" data-lang="en" onclick="switchLanguage('en')">EN</span>
+            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -87,10 +91,10 @@
                 <div class="slider-dots" id="sliderDots"></div>
             </div>
             
-            <div class="hero-content" id="heroContent">
+            <!-- <div class="hero-content" id="heroContent">
                 <h1 data-tr="Metsis İnşaat'a Hoş Geldiniz" data-en="Welcome to Metsis Construction">Metsis İnşaat'a Hoş Geldiniz</h1>
                 <p data-tr="Kaliteli ve güvenilir inşaat çözümleri" data-en="Quality and reliable construction solutions">Kaliteli ve güvenilir inşaat çözümleri</p>
-            </div>
+            </div> -->
         </section>
     </main>
 
