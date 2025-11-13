@@ -35,37 +35,38 @@ function updateContactInfo(data) {
     console.log('Updating contact info with:', data);
     console.log('Current language:', currentLang);
     
-    // Update address using specific class
-    const addressElement = document.querySelector('.contact-address p');
-    if (addressElement) {
+    // Update all address elements (both .info-item and .contact-item)
+    const addressElements = document.querySelectorAll('.contact-address p, .info-item.contact-address p');
+    console.log('Found address elements:', addressElements.length);
+    addressElements.forEach(addressElement => {
         const address = currentLang === 'tr' ? data.address_tr : data.address_en;
         console.log('Setting address to:', address);
         addressElement.textContent = address;
         addressElement.setAttribute('data-tr', data.address_tr);
         addressElement.setAttribute('data-en', data.address_en);
-    } else {
-        console.log('Address element not found');
-    }
+    });
     
-    // Update phone using specific class
-    const phoneElement = document.querySelector('.contact-phone p');
-    if (phoneElement && data.phone) {
-        phoneElement.href = `tel:${data.phone.replace(/\s/g, '')}`;
-        phoneElement.textContent = data.phone;
-        console.log('Phone updated to:', data.phone);
-    } else {
-        console.log('Phone element not found');
-    }
+    // Update all phone elements (both .info-item and .contact-item)
+    const phoneElements = document.querySelectorAll('.contact-phone a, .info-item.contact-phone p');
+    console.log('Found phone elements:', phoneElements.length);
+    phoneElements.forEach(phoneElement => {
+        if (data.phone) {
+            phoneElement.href = `tel:${data.phone.replace(/\s/g, '')}`;
+            phoneElement.textContent = data.phone;
+            console.log('Phone updated to:', data.phone);
+        }
+    });
     
-    // Update email using specific class
-    const emailElement = document.querySelector('.contact-email p');
-    if (emailElement && data.email) {
-        emailElement.href = `mailto:${data.email}`;
-        emailElement.textContent = data.email;
-        console.log('Email updated to:', data.email);
-    } else {
-        console.log('Email element not found');
-    }
+    // Update all email elements (both .info-item and .contact-item)
+    const emailElements = document.querySelectorAll('.contact-email a, .info-item.contact-email p');
+    console.log('Found email elements:', emailElements.length);
+    emailElements.forEach(emailElement => {
+        if (data.email) {
+            emailElement.href = `mailto:${data.email}`;
+            emailElement.textContent = data.email;
+            console.log('Email updated to:', data.email);
+        }
+    });
     
     // Update social media links
     if (data.social) {

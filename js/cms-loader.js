@@ -129,42 +129,94 @@ function renderProjectsData(projects) {
     // Sort by order field
     projects.sort((a, b) => (a.order || 0) - (b.order || 0));
     
-    // Separate by status
-    const ongoingProjects = projects.filter(p => p.status === 'ongoing');
-    const completedProjects = projects.filter(p => p.status === 'completed');
-    
-    // Render projects
-    if (ongoingProjects.length > 0) {
-        renderProjects(ongoingProjects, 'ongoing');
-    }
-    if (completedProjects.length > 0) {
-        renderProjects(completedProjects, 'completed');
-    }
+    // Render all projects in single section
+    renderProjects(projects);
 }
 
-function renderProjects(projects, status) {
-    const section = document.querySelector(`#${status} .project-grid`);
-    if (!section) return;
+function renderProjects(projects) {
+    const section = document.querySelector('#projects .project-grid');
+    if (!section) {
+        console.log('Project grid not found');
+        return;
+    }
     
     // Clear existing content
     section.innerHTML = '';
     
-    const statusLabelTr = status === 'ongoing' ? 'Devam Ediyor' : 'Tamamlandı';
-    const statusLabelEn = status === 'ongoing' ? 'In Progress' : 'Completed';
+    // Get current language
+    const currentLang = localStorage.getItem('language') || 'tr';
+    
+    console.log('Rendering projects:', projects); // Debug log
     
     projects.forEach((project, index) => {
+        console.log(`Project ${index}:`, project); // Debug each project
+        
         const card = document.createElement('div');
         card.className = 'project-card';
         card.setAttribute('data-project-cms', JSON.stringify(project));
         
+        // Build project details HTML
+        let detailsHTML = '';
+        
+        if (project.location_tr || project.location_en) {
+            const locationLabel = currentLang === 'tr' ? 'Lokasyon' : 'Location';
+            const locationValue = currentLang === 'tr' ? (project.location_tr || project.location_en) : (project.location_en || project.location_tr);
+            detailsHTML += `
+                <div class="project-detail">
+                    <strong data-tr="Lokasyon:" data-en="Location:">${locationLabel}:</strong>
+                    <span data-tr="${project.location_tr || ''}" data-en="${project.location_en || ''}">${locationValue}</span>
+                </div>
+            `;
+        }
+        
+        if (project.customer) {
+            const customerLabel = currentLang === 'tr' ? 'Müşteri' : 'Customer';
+            detailsHTML += `
+                <div class="project-detail">
+                    <strong data-tr="Müşteri:" data-en="Customer:">${customerLabel}:</strong>
+                    <span>${project.customer}</span>
+                </div>
+            `;
+        }
+        
+        if (project.start_date) {
+            const startLabel = currentLang === 'tr' ? 'Başlangıç Tarihi' : 'Start Date';
+            detailsHTML += `
+                <div class="project-detail">
+                    <strong data-tr="Başlangıç Tarihi:" data-en="Start Date:">${startLabel}:</strong>
+                    <span>${project.start_date}</span>
+                </div>
+            `;
+        }
+        
+        if (project.completion_date) {
+            const completionLabel = currentLang === 'tr' ? 'Tamamlanma Tarihi' : 'Completion Date';
+            detailsHTML += `
+                <div class="project-detail">
+                    <strong data-tr="Tamamlanma Tarihi:" data-en="Completion Date:">${completionLabel}:</strong>
+                    <span>${project.completion_date}</span>
+                </div>
+            `;
+        }
+        
+        if (project.description_tr || project.description_en) {
+            const description = currentLang === 'tr' ? (project.description_tr || project.description_en) : (project.description_en || project.description_tr);
+            detailsHTML += `
+                <div class="project-detail">
+                    <p data-tr="${project.description_tr || ''}" data-en="${project.description_en || ''}">${description}</p>
+                </div>
+            `;
+        }
+        
+        console.log(`Project ${index} details HTML:`, detailsHTML); // Debug HTML
+        
         card.innerHTML = `
             <div class="project-image">
                 <img src="${project.image}" alt="${project.title_tr}">
-                <span class="status-tag ${status}" data-tr="${statusLabelTr}" data-en="${statusLabelEn}">${statusLabelTr}</span>
+                <div class="project-title" data-tr="${project.title_tr}" data-en="${project.title_en}">${currentLang === 'tr' ? project.title_tr : project.title_en}</div>
             </div>
             <div class="project-info">
-                <h3 data-tr="${project.title_tr}" data-en="${project.title_en}">${project.title_tr}</h3>
-                <p data-tr="${project.description_tr}" data-en="${project.description_en}">${project.description_tr}</p>
+                ${detailsHTML}
             </div>
         `;
         

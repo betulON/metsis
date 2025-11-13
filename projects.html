@@ -16,22 +16,8 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link" data-tr="Anasayfa" data-en="Home">Anasayfa</a></li>
-                <li class="dropdown">
-                    <a href="corporate.html" class="nav-link" data-tr="Kurumsal" data-en="Corporate">Kurumsal</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="corporate.html#company" data-tr="Şirket" data-en="Company">Şirket</a></li>
-                        <li><a href="corporate.html#quality" data-tr="Kalite" data-en="Quality">Kalite</a></li>
-                        <li><a href="corporate.html#people" data-tr="İnsan" data-en="People">İnsan</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="projects.html" class="nav-link active" data-tr="Projeler" data-en="Projects">Projeler</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="projects.html#ongoing" data-tr="Devam Eden" data-en="Ongoing">Devam Eden</a></li>
-                        <li><a href="projects.html#completed" data-tr="Tamamlanmış" data-en="Completed">Tamamlanmış</a></li>
-                    </ul>
-                </li>
-                <li><a href="references.html" class="nav-link" data-tr="Referanslar" data-en="References">Referanslar</a></li>
+                <li><a href="about.html" class="nav-link" data-tr="Hakkımızda" data-en="About">Hakkımızda</a></li>
+                <li><a href="projects.html" class="nav-link active" data-tr="Projeler" data-en="Projects">Projeler</a></li>
                 <li><a href="contact.html" class="nav-link" data-tr="İletişim" data-en="Contact">İletişim</a></li>
             </ul>
             <div class="lang-switcher" id="langSwitcher">
@@ -55,14 +41,13 @@
             </div>
         </section>
 
-        <section id="ongoing" class="content-section">
+        <section id="projects" class="content-section">
             <div class="container">
-                <h2 data-tr="Devam Eden Projeler" data-en="Ongoing Projects">Devam Eden Projeler</h2>
+                <h2 data-tr="Projeler" data-en="Projects">Projeler</h2>
                 <div class="project-grid">
                     <div class="project-card" data-project="project1">
                         <div class="project-image">
                             <img src="images/project1.png" alt="Konut Kompleksi A">
-                            <span class="status-tag ongoing" data-tr="Devam Ediyor" data-en="In Progress">Devam Ediyor</span>
                         </div>
                         <div class="project-info">
                             <h3 data-tr="Konut Kompleksi A" data-en="Residential Complex A">Konut Kompleksi A</h3>
@@ -72,7 +57,6 @@
                     <div class="project-card" data-project="project2">
                         <div class="project-image">
                             <img src="images/project2.png" alt="Alışveriş Merkezi B">
-                            <span class="status-tag ongoing" data-tr="Devam Ediyor" data-en="In Progress">Devam Ediyor</span>
                         </div>
                         <div class="project-info">
                             <h3 data-tr="Alışveriş Merkezi B" data-en="Shopping Mall B">Alışveriş Merkezi B</h3>
@@ -82,25 +66,15 @@
                     <div class="project-card" data-project="project3">
                         <div class="project-image">
                             <img src="images/project3.png" alt="Endüstriyel Tesis C">
-                            <span class="status-tag ongoing" data-tr="Devam Ediyor" data-en="In Progress">Devam Ediyor</span>
                         </div>
                         <div class="project-info">
                             <h3 data-tr="Endüstriyel Tesis C" data-en="Industrial Facility C">Endüstriyel Tesis C</h3>
                             <p data-tr="Türkiye, İzmir" data-en="Turkey, Izmir">Türkiye, İzmir</p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="completed" class="content-section bg-light">
-            <div class="container">
-                <h2 data-tr="Tamamlanmış Projeler" data-en="Completed Projects">Tamamlanmış Projeler</h2>
-                <div class="project-grid">
                     <div class="project-card" data-project="project4">
                         <div class="project-image">
                             <img src="images/project4.png" alt="Plaza X">
-                            <span class="status-tag completed" data-tr="Tamamlandı" data-en="Completed">Tamamlandı</span>
                         </div>
                         <div class="project-info">
                             <h3 data-tr="Plaza X" data-en="Plaza X">Plaza X</h3>
@@ -110,7 +84,6 @@
                     <div class="project-card" data-project="project5">
                         <div class="project-image">
                             <img src="images/project1.png" alt="Konut Sitesi Y">
-                            <span class="status-tag completed" data-tr="Tamamlandı" data-en="Completed">Tamamlandı</span>
                         </div>
                         <div class="project-info">
                             <h3 data-tr="Konut Sitesi Y" data-en="Residential Site Y">Konut Sitesi Y</h3>
@@ -120,7 +93,6 @@
                     <div class="project-card" data-project="project6">
                         <div class="project-image">
                             <img src="images/project2.png" alt="Otel Z">
-                            <span class="status-tag completed" data-tr="Tamamlandı" data-en="Completed">Tamamlandı</span>
                         </div>
                         <div class="project-info">
                             <h3 data-tr="Otel Z" data-en="Hotel Z">Otel Z</h3>
@@ -130,7 +102,6 @@
                     <div class="project-card" data-project="project7">
                         <div class="project-image">
                             <img src="images/project3.png" alt="İş Merkezi W">
-                            <span class="status-tag completed" data-tr="Tamamlandı" data-en="Completed">Tamamlandı</span>
                         </div>
                         <div class="project-info">
                             <h3 data-tr="İş Merkezi W" data-en="Business Center W">İş Merkezi W</h3>
@@ -199,20 +170,20 @@
                 <!-- Contact Section -->
                 <div class="footer-section">
                     <h3 data-tr="Bize Ulaşın" data-en="Contact Us">Bize Ulaşın</h3>
-                    <div class="contact-item">
+                    <div class="contact-item contact-address">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                             <circle cx="12" cy="10" r="3"></circle>
                         </svg>
                         <p>Örnek Mahallesi, İnşaat Caddesi No: 123, İstanbul, Türkiye</p>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item contact-phone">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
                         <p><a href="tel:+902121234567">+90 (212) 123 45 67</a></p>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item contact-email">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                             <polyline points="22,6 12,13 2,6"></polyline>
