@@ -1,8 +1,8 @@
 {
-  "address_tr": "Örnek Mahallesi, İnşaat Caddesi No: 123, İstanbul, Türkiye",
-  "address_en": "Sample District, Construction Street No: 123, Istanbul, Turkey",
-  "phone": "+90 (212) 123 45 67",
-  "email": "info@metsis.com",
+  "address_tr": "Necip Fazıl Mah., İnşaat Caddesi No: 123, İstanbul, Türkiye",
+  "address_en": "Necip Fazil Neighboorhood, Construction Street No: 123, Istanbul, Turkey\n",
+  "phone": "+90 (216) 123 45 67",
+  "email": "contact@metsis.com",
   "social": {
     "facebook": "#",
     "twitter": "#",
