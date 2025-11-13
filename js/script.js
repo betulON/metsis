@@ -1,5 +1,6 @@
 // Language Management
 let currentLang = localStorage.getItem('language') || 'tr';
+let cmsContactData = null; // Store CMS contact data
 
 // CMS Content Loading
 async function loadCMSContent() {
@@ -7,8 +8,8 @@ async function loadCMSContent() {
         // Load contact information
         const contactResponse = await fetch('/content/contact.json');
         if (contactResponse.ok) {
-            const contactData = await contactResponse.json();
-            updateContactInfo(contactData);
+            cmsContactData = await contactResponse.json();
+            updateContactInfo(cmsContactData);
         }
         
         // Load hero section if on homepage
@@ -26,10 +27,14 @@ async function loadCMSContent() {
 
 function updateContactInfo(data) {
     // Update address
-    const addressElement = document.querySelector('.contact-item p');
-    if (addressElement && !addressElement.querySelector('a')) {
-        addressElement.textContent = currentLang === 'tr' ? data.address_tr : data.address_en;
-    }
+    const addressElements = document.querySelectorAll('.contact-item p:not(:has(a))');
+    addressElements.forEach(addressElement => {
+        if (!addressElement.querySelector('a')) {
+            addressElement.textContent = currentLang === 'tr' ? data.address_tr : data.address_en;
+            addressElement.setAttribute('data-tr', data.address_tr);
+            addressElement.setAttribute('data-en', data.address_en);
+        }
+    });
     
     // Update phone
     const phoneLink = document.querySelector('a[href^="tel:"]');
@@ -118,6 +123,11 @@ function switchLanguage(lang) {
         switchToTurkish();
     }
     updateLangSwitcher();
+    
+    // Update CMS content with new language
+    if (cmsContactData) {
+        updateContactInfo(cmsContactData);
+    }
 }
 
 // Switch to English
