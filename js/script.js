@@ -6,10 +6,16 @@ let cmsContactData = null; // Store CMS contact data
 async function loadCMSContent() {
     try {
         // Load contact information
+        console.log('Loading contact info from CMS...');
         const contactResponse = await fetch('/content/contact.json');
+        console.log('Contact response status:', contactResponse.status);
+        
         if (contactResponse.ok) {
             cmsContactData = await contactResponse.json();
+            console.log('Contact data loaded:', cmsContactData);
             updateContactInfo(cmsContactData);
+        } else {
+            console.log('Could not load contact.json, status:', contactResponse.status);
         }
         
         // Load hero section if on homepage
@@ -21,37 +27,44 @@ async function loadCMSContent() {
             }
         }
     } catch (error) {
-        console.log('CMS content not available, using default content');
+        console.log('CMS content not available, using default content:', error);
     }
 }
 
 function updateContactInfo(data) {
-    // Update address - find the first contact-item p that doesn't have a link inside
-    const contactItems = document.querySelectorAll('.contact-item');
-    contactItems.forEach(item => {
-        const paragraph = item.querySelector('p');
-        const link = paragraph ? paragraph.querySelector('a') : null;
-        
-        // If paragraph exists and has no link, it's the address
-        if (paragraph && !link) {
-            paragraph.textContent = currentLang === 'tr' ? data.address_tr : data.address_en;
-            paragraph.setAttribute('data-tr', data.address_tr);
-            paragraph.setAttribute('data-en', data.address_en);
-        }
-    });
+    console.log('Updating contact info with:', data);
+    console.log('Current language:', currentLang);
     
-    // Update phone
-    const phoneLink = document.querySelector('a[href^="tel:"]');
-    if (phoneLink && data.phone) {
-        phoneLink.href = `tel:${data.phone.replace(/\s/g, '')}`;
-        phoneLink.textContent = data.phone;
+    // Update address using specific class
+    const addressElement = document.querySelector('.contact-address p');
+    if (addressElement) {
+        const address = currentLang === 'tr' ? data.address_tr : data.address_en;
+        console.log('Setting address to:', address);
+        addressElement.textContent = address;
+        addressElement.setAttribute('data-tr', data.address_tr);
+        addressElement.setAttribute('data-en', data.address_en);
+    } else {
+        console.log('Address element not found');
     }
     
-    // Update email
-    const emailLink = document.querySelector('a[href^="mailto:"]');
-    if (emailLink && data.email) {
-        emailLink.href = `mailto:${data.email}`;
-        emailLink.textContent = data.email;
+    // Update phone using specific class
+    const phoneElement = document.querySelector('.contact-phone p');
+    if (phoneElement && data.phone) {
+        phoneElement.href = `tel:${data.phone.replace(/\s/g, '')}`;
+        phoneElement.textContent = data.phone;
+        console.log('Phone updated to:', data.phone);
+    } else {
+        console.log('Phone element not found');
+    }
+    
+    // Update email using specific class
+    const emailElement = document.querySelector('.contact-email p');
+    if (emailElement && data.email) {
+        emailElement.href = `mailto:${data.email}`;
+        emailElement.textContent = data.email;
+        console.log('Email updated to:', data.email);
+    } else {
+        console.log('Email element not found');
     }
     
     // Update social media links
