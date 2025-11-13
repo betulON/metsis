@@ -3,7 +3,7 @@
   "title_en": "Project 1",
   "description_tr": "İlk ilk proje açıklaması",
   "description_en": "First project description",
-  "image": "../../images/project1.png",
+  "image": "images/project1.png",
   "location_tr": "İstanbul, Türkiye",
   "location_en": "Istanbul, Turkey",
   "customer": "Sample Customer Ltd.",
