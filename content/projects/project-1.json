@@ -1,0 +1,9 @@
+{
+  "title_tr": "Proje 1",
+  "title_en": "Project 1",
+  "description_tr": "İlk örnek proje açıklaması",
+  "description_en": "First sample project description",
+  "status": "ongoing",
+  "image": "/images/project1.png",
+  "order": 1
+}

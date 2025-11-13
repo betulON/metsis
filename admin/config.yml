@@ -1,0 +1,224 @@
+backend:
+  name: github
+  repo: betulON/metsis
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+# Alternative: If you're using Netlify Identity instead of GitHub OAuth
+# backend:
+#   name: git-gateway
+#   branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+# Publish mode - set to editorial_workflow for draft/review/publish workflow
+# publish_mode: editorial_workflow
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "contact"
+        label: "Contact Information"
+        file: "content/contact.json"
+        fields:
+          - { label: "Address (Turkish)", name: "address_tr", widget: "text" }
+          - { label: "Address (English)", name: "address_en", widget: "text" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - label: "Social Media"
+            name: "social"
+            widget: "object"
+            fields:
+              - {
+                  label: "Facebook URL",
+                  name: "facebook",
+                  widget: "string",
+                  required: false,
+                }
+              - {
+                  label: "Twitter URL",
+                  name: "twitter",
+                  widget: "string",
+                  required: false,
+                }
+              - {
+                  label: "LinkedIn URL",
+                  name: "linkedin",
+                  widget: "string",
+                  required: false,
+                }
+              - {
+                  label: "Instagram URL",
+                  name: "instagram",
+                  widget: "string",
+                  required: false,
+                }
+
+      - name: "hero"
+        label: "Homepage Hero Section"
+        file: "content/hero.json"
+        fields:
+          - {
+              label: "Video URL (MP4)",
+              name: "video_mp4",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Video URL (WebM)",
+              name: "video_webm",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Heading (Turkish)",
+              name: "heading_tr",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Heading (English)",
+              name: "heading_en",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Description (Turkish)",
+              name: "description_tr",
+              widget: "text",
+              required: false,
+            }
+          - {
+              label: "Description (English)",
+              name: "description_en",
+              widget: "text",
+              required: false,
+            }
+
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title (Turkish)", name: "title_tr", widget: "string" }
+      - { label: "Title (English)", name: "title_en", widget: "string" }
+      - {
+          label: "Description (Turkish)",
+          name: "description_tr",
+          widget: "text",
+        }
+      - {
+          label: "Description (English)",
+          name: "description_en",
+          widget: "text",
+        }
+      - {
+          label: "Status",
+          name: "status",
+          widget: "select",
+          options: ["ongoing", "completed"],
+        }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Order", name: "order", widget: "number", default: 0 }
+
+  - name: "references"
+    label: "References"
+    folder: "content/references"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Company Name", name: "name", widget: "string" }
+      - { label: "Logo", name: "logo", widget: "image", required: false }
+      - {
+          label: "Description (Turkish)",
+          name: "description_tr",
+          widget: "text",
+          required: false,
+        }
+      - {
+          label: "Description (English)",
+          name: "description_en",
+          widget: "text",
+          required: false,
+        }
+      - { label: "Order", name: "order", widget: "number", default: 0 }
+
+  - name: "corporate"
+    label: "Corporate"
+    files:
+      - name: "company"
+        label: "Company Information"
+        file: "content/corporate/company.json"
+        fields:
+          - { label: "Title (Turkish)", name: "title_tr", widget: "string" }
+          - { label: "Title (English)", name: "title_en", widget: "string" }
+          - {
+              label: "Content (Turkish)",
+              name: "content_tr",
+              widget: "markdown",
+            }
+          - {
+              label: "Content (English)",
+              name: "content_en",
+              widget: "markdown",
+            }
+
+      - name: "quality"
+        label: "Quality"
+        file: "content/corporate/quality.json"
+        fields:
+          - { label: "Title (Turkish)", name: "title_tr", widget: "string" }
+          - { label: "Title (English)", name: "title_en", widget: "string" }
+          - {
+              label: "Content (Turkish)",
+              name: "content_tr",
+              widget: "markdown",
+            }
+          - {
+              label: "Content (English)",
+              name: "content_en",
+              widget: "markdown",
+            }
+
+      - name: "people"
+        label: "People"
+        file: "content/corporate/people.json"
+        fields:
+          - { label: "Title (Turkish)", name: "title_tr", widget: "string" }
+          - { label: "Title (English)", name: "title_en", widget: "string" }
+          - {
+              label: "Content (Turkish)",
+              name: "content_tr",
+              widget: "markdown",
+            }
+          - {
+              label: "Content (English)",
+              name: "content_en",
+              widget: "markdown",
+            }
+
+  - name: "slider"
+    label: "Homepage Slider"
+    folder: "content/slider"
+    create: true
+    slug: "slide-{{slug}}"
+    fields:
+      - { label: "Image", name: "image", widget: "image" }
+      - {
+          label: "Button Text (Turkish)",
+          name: "button_tr",
+          widget: "string",
+          default: "İNCELE",
+        }
+      - {
+          label: "Button Text (English)",
+          name: "button_en",
+          widget: "string",
+          default: "EXPLORE",
+        }
+      - { label: "Link URL", name: "link", widget: "string", required: false }
+      - { label: "Order", name: "order", widget: "number", default: 0 }

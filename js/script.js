@@ -1,26 +1,113 @@
 // Language Management
 let currentLang = localStorage.getItem('language') || 'tr';
 
-// Initialize language on page load
-document.addEventListener('DOMContentLoaded', function() {
-    // Set initial language
-    if (currentLang === 'en') {
-        switchToEnglish();
-    } else {
-        switchToTurkish();
+// CMS Content Loading
+async function loadCMSContent() {
+    try {
+        // Load contact information
+        const contactResponse = await fetch('/content/contact.json');
+        if (contactResponse.ok) {
+            const contactData = await contactResponse.json();
+            updateContactInfo(contactData);
+        }
+        
+        // Load hero section if on homepage
+        if (document.querySelector('.hero')) {
+            const heroResponse = await fetch('/content/hero.json');
+            if (heroResponse.ok) {
+                const heroData = await heroResponse.json();
+                updateHeroSection(heroData);
+            }
+        }
+    } catch (error) {
+        console.log('CMS content not available, using default content');
+    }
+}
+
+function updateContactInfo(data) {
+    // Update address
+    const addressElement = document.querySelector('.contact-item p');
+    if (addressElement && !addressElement.querySelector('a')) {
+        addressElement.textContent = currentLang === 'tr' ? data.address_tr : data.address_en;
     }
     
-    // Update language switcher UI
-    updateLangSwitcher();
+    // Update phone
+    const phoneLink = document.querySelector('a[href^="tel:"]');
+    if (phoneLink && data.phone) {
+        phoneLink.href = `tel:${data.phone.replace(/\s/g, '')}`;
+        phoneLink.textContent = data.phone;
+    }
     
-    // Mobile menu functionality
-    initMobileMenu();
+    // Update email
+    const emailLink = document.querySelector('a[href^="mailto:"]');
+    if (emailLink && data.email) {
+        emailLink.href = `mailto:${data.email}`;
+        emailLink.textContent = data.email;
+    }
     
-    // Form handling
-    initContactForm();
+    // Update social media links
+    if (data.social) {
+        const socialLinks = document.querySelectorAll('.social-icons a');
+        if (data.social.facebook && socialLinks[0]) socialLinks[0].href = data.social.facebook;
+        if (data.social.twitter && socialLinks[1]) socialLinks[1].href = data.social.twitter;
+        if (data.social.linkedin && socialLinks[2]) socialLinks[2].href = data.social.linkedin;
+        if (data.social.instagram && socialLinks[3]) socialLinks[3].href = data.social.instagram;
+    }
+}
+
+function updateHeroSection(data) {
+    // Update video sources
+    const videoElement = document.getElementById('heroVideo');
+    if (videoElement && data.video_mp4) {
+        const mp4Source = videoElement.querySelector('source[type="video/mp4"]');
+        const webmSource = videoElement.querySelector('source[type="video/webm"]');
+        if (mp4Source) mp4Source.src = data.video_mp4;
+        if (webmSource && data.video_webm) webmSource.src = data.video_webm;
+        videoElement.load();
+    }
     
-    // Initialize animations
-    initAnimations();
+    // Update hero content (if visible)
+    const heroContent = document.getElementById('heroContent');
+    if (heroContent) {
+        const heading = heroContent.querySelector('h1');
+        const description = heroContent.querySelector('p');
+        
+        if (heading) {
+            heading.setAttribute('data-tr', data.heading_tr);
+            heading.setAttribute('data-en', data.heading_en);
+        }
+        
+        if (description) {
+            description.setAttribute('data-tr', data.description_tr);
+            description.setAttribute('data-en', data.description_en);
+        }
+    }
+}
+
+
+// Initialize language on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Load CMS content first
+    loadCMSContent().then(() => {
+        // Set initial language
+        if (currentLang === 'en') {
+            switchToEnglish();
+        } else {
+            switchToTurkish();
+        }
+        
+        // Update language switcher UI
+        updateLangSwitcher();
+        
+        // Mobile menu functionality
+        initMobileMenu();
+        
+        // Form handling
+        initContactForm();
+        
+        // Initialize animations
+        initAnimations();
+    });
 });
 
 // Switch language function (called from HTML onclick)
