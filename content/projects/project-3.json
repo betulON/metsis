@@ -1,9 +1,14 @@
 {
-  "title_tr": "Proje 3",
-  "title_en": "Project 3",
   "description_tr": "Üçüncü örnek proje açıklaması",
+  "title_tr": "Proje 3",
+  "location_tr": "istanbul, turkey",
+  "start_date": "13.20.2022",
   "description_en": "Third sample project description",
+  "order": 2,
+  "title_en": "Project 3",
+  "completion_date": "10.23.2024",
   "status": "ongoing",
+  "location_en": "istanbul, turkey",
   "image": "/images/project3.png",
-  "order": 2
+  "customer": "customer1"
 }

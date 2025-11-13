@@ -1,16 +1,16 @@
 {
-	"sections": [
-		{
-			"title_tr": "Biz Kimiz?",
-			"title_en": "Who We Are",
-			"content_tr": "Metsis İnşaat, inşaat sektöründe yılların deneyimine sahip bir firmadır. Müşteri memnuniyeti ve kalite önceliğimizdir.",
-			"content_en": "Metsis Construction is a company with years of experience in the construction industry. Customer satisfaction and quality are our priorities."
-		},
-		{
-			"title_tr": "Faaliyet Alanları",
-			"title_en": "Fields of Activity",
-			"content_tr": "Konut, ticari yapılar, endüstriyel tesisler, kamu binaları, altyapı projeleri ve restorasyon hizmetleri sunuyoruz.",
-			"content_en": "We provide residential, commercial, industrial facilities, public buildings, infrastructure projects and restoration services."
-		}
-	]
+  "sections": [
+    {
+      "title_tr": "Biz Kimiz?",
+      "title_en": "Who We Are",
+      "content_tr": "Metsis İnşaat, inşaat sektöründe yılların deneyimine sahip bir firmadır. Müşteri memnuniyeti ve kalite önceliğimizdir.",
+      "content_en": "Metsis Construction is a company with years of experience in the construction industry. Customer satisfaction and quality are our priorities."
+    },
+    {
+      "title_tr": "Faaliyet Alanları",
+      "title_en": "Fields of Activity",
+      "content_tr": "Mekanik\n\nElektrik\n\nAltyapı",
+      "content_en": "Mechanical\n\nElectrical\n\nInfrastructure"
+    }
+  ]
 }
