@@ -1,39 +1,78 @@
 // Load and display projects from CMS
 async function loadProjects() {
     try {
-        // Fetch all project files from the content/projects directory
-        const response = await fetch('https://api.github.com/repos/betulON/metsis/contents/content/projects');
+        // First, try to fetch the projects directly from the content folder
+        // This works when the site is deployed and the CMS has created files
+        const response = await fetch('/content/projects/');
         
+        // If we can't list the directory, try fetching from GitHub API as fallback
         if (!response.ok) {
-            console.log('Using static content - CMS projects not available yet');
+            await loadProjectsFromGitHub();
             return;
         }
         
-        const files = await response.json();
-        const projectPromises = files
-            .filter(file => file.name.endsWith('.json'))
-            .map(file => fetch(file.download_url).then(res => res.json()));
+        // Parse the directory listing (this works on most static hosts)
+        const text = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'text/html');
+        const links = Array.from(doc.querySelectorAll('a'))
+            .map(a => a.getAttribute('href'))
+            .filter(href => href && href.endsWith('.json'));
+        
+        if (links.length === 0) {
+            // No projects found, keep static content
+            console.log('No CMS projects found yet, using static content');
+            return;
+        }
+        
+        const projectPromises = links.map(link => 
+            fetch(`/content/projects/${link}`).then(res => res.json())
+        );
         
         const projects = await Promise.all(projectPromises);
-        
-        // Sort by order field
-        projects.sort((a, b) => (a.order || 0) - (b.order || 0));
-        
-        // Separate by status
-        const ongoingProjects = projects.filter(p => p.status === 'ongoing');
-        const completedProjects = projects.filter(p => p.status === 'completed');
-        
-        // Render projects
-        if (ongoingProjects.length > 0) {
-            renderProjects(ongoingProjects, 'ongoing');
-        }
-        if (completedProjects.length > 0) {
-            renderProjects(completedProjects, 'completed');
-        }
+        renderProjectsData(projects);
         
     } catch (error) {
         console.log('Error loading CMS projects:', error);
-        console.log('Using static content instead');
+        // Try GitHub API as fallback
+        try {
+            await loadProjectsFromGitHub();
+        } catch (e) {
+            console.log('Using static content');
+        }
+    }
+}
+
+async function loadProjectsFromGitHub() {
+    const response = await fetch('https://api.github.com/repos/betulON/metsis/contents/content/projects');
+    
+    if (!response.ok) {
+        throw new Error('Cannot fetch from GitHub');
+    }
+    
+    const files = await response.json();
+    const projectPromises = files
+        .filter(file => file.name.endsWith('.json'))
+        .map(file => fetch(file.download_url).then(res => res.json()));
+    
+    const projects = await Promise.all(projectPromises);
+    renderProjectsData(projects);
+}
+
+function renderProjectsData(projects) {
+    // Sort by order field
+    projects.sort((a, b) => (a.order || 0) - (b.order || 0));
+    
+    // Separate by status
+    const ongoingProjects = projects.filter(p => p.status === 'ongoing');
+    const completedProjects = projects.filter(p => p.status === 'completed');
+    
+    // Render projects
+    if (ongoingProjects.length > 0) {
+        renderProjects(ongoingProjects, 'ongoing');
+    }
+    if (completedProjects.length > 0) {
+        renderProjects(completedProjects, 'completed');
     }
 }
 
