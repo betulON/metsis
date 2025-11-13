@@ -1,44 +1,48 @@
 // Load and display projects from CMS
 async function loadProjects() {
     try {
-        // First, try to fetch the projects directly from the content folder
-        // This works when the site is deployed and the CMS has created files
-        const response = await fetch('/content/projects/');
-        
-        // If we can't list the directory, try fetching from GitHub API as fallback
-        if (!response.ok) {
-            await loadProjectsFromGitHub();
-            return;
-        }
-        
-        // Parse the directory listing (this works on most static hosts)
-        const text = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(text, 'text/html');
-        const links = Array.from(doc.querySelectorAll('a'))
-            .map(a => a.getAttribute('href'))
-            .filter(href => href && href.endsWith('.json'));
-        
-        if (links.length === 0) {
-            // No projects found, keep static content
-            console.log('No CMS projects found yet, using static content');
-            return;
-        }
-        
-        const projectPromises = links.map(link => 
-            fetch(`/content/projects/${link}`).then(res => res.json())
-        );
-        
-        const projects = await Promise.all(projectPromises);
-        renderProjectsData(projects);
-        
+        // Try GitHub API first (most reliable for getting all files)
+        await loadProjectsFromGitHub();
     } catch (error) {
-        console.log('Error loading CMS projects:', error);
-        // Try GitHub API as fallback
+        console.log('GitHub API failed, trying direct fetch...');
+        
+        // Fallback: Try direct fetch methods
         try {
-            await loadProjectsFromGitHub();
+            // Method 1: Try index.json
+            const indexResponse = await fetch('/content/projects/index.json');
+            if (indexResponse.ok) {
+                const index = await indexResponse.json();
+                const projectPromises = index.projects.map(filename => 
+                    fetch(`/content/projects/${filename}`).then(res => res.json())
+                );
+                const projects = await Promise.all(projectPromises);
+                console.log(`Loaded ${projects.length} projects from index`);
+                renderProjectsData(projects);
+                return;
+            }
         } catch (e) {
-            console.log('Using static content');
+            console.log('No index.json, trying numbered files...');
+        }
+        
+        // Method 2: Try numbered files
+        const projectFiles = [];
+        for (let i = 1; i <= 20; i++) {
+            try {
+                const response = await fetch(`/content/projects/project-${i}.json`);
+                if (response.ok) {
+                    const project = await response.json();
+                    projectFiles.push(project);
+                }
+            } catch (e) {
+                // File doesn't exist, skip
+            }
+        }
+        
+        if (projectFiles.length > 0) {
+            console.log(`Loaded ${projectFiles.length} projects directly`);
+            renderProjectsData(projectFiles);
+        } else {
+            console.log('No projects found, using static content');
         }
     }
 }
@@ -51,12 +55,74 @@ async function loadProjectsFromGitHub() {
     }
     
     const files = await response.json();
-    const projectPromises = files
-        .filter(file => file.name.endsWith('.json'))
-        .map(file => fetch(file.download_url).then(res => res.json()));
     
-    const projects = await Promise.all(projectPromises);
+    // Filter for .json files and ignore index.json
+    const projectFiles = files.filter(file => 
+        file.name.endsWith('.json') && file.name !== 'index.json'
+    );
+    
+    // Also check for .md files (in case CMS created markdown files)
+    const mdFiles = files.filter(file => file.name.endsWith('.md'));
+    
+    if (projectFiles.length === 0 && mdFiles.length === 0) {
+        throw new Error('No project files found');
+    }
+    
+    // Load JSON files
+    const jsonPromises = projectFiles.map(async file => {
+        const data = await fetch(file.download_url).then(res => res.json());
+        // Handle both single object and array of objects
+        return Array.isArray(data) ? data : [data];
+    });
+    
+    // Load MD files (Decap CMS uses frontmatter in markdown)
+    const mdPromises = mdFiles.map(async file => {
+        const text = await fetch(file.download_url).then(res => res.text());
+        const parsed = parseFrontmatter(text);
+        return parsed ? [parsed] : [];
+    });
+    
+    const allPromises = [...jsonPromises, ...mdPromises];
+    const projectArrays = await Promise.all(allPromises);
+    
+    // Flatten the arrays (in case some files contain multiple projects)
+    const projects = projectArrays.flat().filter(p => p !== null);
+    
+    console.log(`Loaded ${projects.length} projects from GitHub`);
     renderProjectsData(projects);
+}
+
+// Parse YAML frontmatter from markdown files
+function parseFrontmatter(text) {
+    const match = text.match(/^---\s*\n([\s\S]*?)\n---/);
+    if (!match) return null;
+    
+    const frontmatter = match[1];
+    const data = {};
+    
+    // Simple YAML parser for our use case
+    frontmatter.split('\n').forEach(line => {
+        const colonIndex = line.indexOf(':');
+        if (colonIndex > 0) {
+            const key = line.substring(0, colonIndex).trim();
+            let value = line.substring(colonIndex + 1).trim();
+            
+            // Remove quotes if present
+            if ((value.startsWith('"') && value.endsWith('"')) || 
+                (value.startsWith("'") && value.endsWith("'"))) {
+                value = value.slice(1, -1);
+            }
+            
+            // Convert number strings to numbers
+            if (!isNaN(value) && value !== '') {
+                value = Number(value);
+            }
+            
+            data[key] = value;
+        }
+    });
+    
+    return data;
 }
 
 function renderProjectsData(projects) {

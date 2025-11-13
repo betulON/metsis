@@ -1,9 +1,20 @@
-{
-  "title_tr": "Proje 1",
-  "title_en": "Project 1",
-  "description_tr": "İlk örnek proje açıklaması",
-  "description_en": "First sample project description",
-  "status": "ongoing",
-  "image": "/images/project1.png",
-  "order": 1
-}
+[
+  {
+    "title_tr": "Proje 11",
+    "title_en": "Project 1",
+    "description_tr": "İlk ilk proje açıklaması",
+    "description_en": "First project description",
+    "status": "ongoing",
+    "image": "/images/project1.png",
+    "order": 1
+  },
+  {
+    "title_tr": "Proje 2",
+    "title_en": "Project 2",
+    "description_tr": "İkinci örnek proje açıklaması",
+    "description_en": "Second sample project description",
+    "status": "ongoing",
+    "image": "/images/project2.png",
+    "order": 2
+  }
+]

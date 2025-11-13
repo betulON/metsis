@@ -26,13 +26,17 @@ async function loadCMSContent() {
 }
 
 function updateContactInfo(data) {
-    // Update address
-    const addressElements = document.querySelectorAll('.contact-item p:not(:has(a))');
-    addressElements.forEach(addressElement => {
-        if (!addressElement.querySelector('a')) {
-            addressElement.textContent = currentLang === 'tr' ? data.address_tr : data.address_en;
-            addressElement.setAttribute('data-tr', data.address_tr);
-            addressElement.setAttribute('data-en', data.address_en);
+    // Update address - find the first contact-item p that doesn't have a link inside
+    const contactItems = document.querySelectorAll('.contact-item');
+    contactItems.forEach(item => {
+        const paragraph = item.querySelector('p');
+        const link = paragraph ? paragraph.querySelector('a') : null;
+        
+        // If paragraph exists and has no link, it's the address
+        if (paragraph && !link) {
+            paragraph.textContent = currentLang === 'tr' ? data.address_tr : data.address_en;
+            paragraph.setAttribute('data-tr', data.address_tr);
+            paragraph.setAttribute('data-en', data.address_en);
         }
     });
     

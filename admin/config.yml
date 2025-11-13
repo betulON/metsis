@@ -94,7 +94,9 @@ collections:
     label: "Projects"
     folder: "content/projects"
     create: true
-    slug: "{{slug}}"
+    slug: "{{title_en}}"
+    extension: "json"
+    format: "json"
     fields:
       - { label: "Title (Turkish)", name: "title_tr", widget: "string" }
       - { label: "Title (English)", name: "title_en", widget: "string" }
@@ -121,7 +123,9 @@ collections:
     label: "References"
     folder: "content/references"
     create: true
-    slug: "{{slug}}"
+    slug: "{{name}}"
+    extension: "json"
+    format: "json"
     fields:
       - { label: "Company Name", name: "name", widget: "string" }
       - { label: "Logo", name: "logo", widget: "image", required: false }
@@ -197,7 +201,9 @@ collections:
     label: "Homepage Slider"
     folder: "content/slider"
     create: true
-    slug: "slide-{{slug}}"
+    slug: "slide-{{order}}"
+    extension: "json"
+    format: "json"
     fields:
       - { label: "Image", name: "image", widget: "image" }
       - {
