@@ -1,14 +1,6 @@
 backend:
-  name: github
-  repo: betulON/metsis
+  name: git-gateway
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
-
-# Alternative: If you're using Netlify Identity instead of GitHub OAuth
-# backend:
-#   name: git-gateway
-#   branch: main
 
 media_folder: "images"
 public_folder: "/images"
