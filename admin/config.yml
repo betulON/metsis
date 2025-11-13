@@ -5,8 +5,8 @@ backend:
 media_folder: "images"
 public_folder: "/images"
 
-# Publish mode - set to editorial_workflow for draft/review/publish workflow
-# publish_mode: editorial_workflow
+# Editorial workflow - allows draft/review/publish workflow
+publish_mode: editorial_workflow
 
 collections:
   - name: "settings"
@@ -145,23 +145,25 @@ collections:
 
   - name: "about"
     label: "About"
-    files:
-      - name: "activities"
-        label: "Fields of Activity"
-        file: "content/about/activities.json"
-        fields:
-          - { label: "Title (Turkish)", name: "title_tr", widget: "string" }
-          - { label: "Title (English)", name: "title_en", widget: "string" }
-          - {
-              label: "Content (Turkish)",
-              name: "content_tr",
-              widget: "markdown",
-            }
-          - {
-              label: "Content (English)",
-              name: "content_en",
-              widget: "markdown",
-            }
+    folder: "content/about"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Title (Turkish)", name: "title_tr", widget: "string" }
+      - { label: "Title (English)", name: "title_en", widget: "string" }
+      - {
+          label: "Content (Turkish)",
+          name: "content_tr",
+          widget: "markdown",
+        }
+      - {
+          label: "Content (English)",
+          name: "content_en",
+          widget: "markdown",
+        }
+      - { label: "Order", name: "order", widget: "number", default: 0 }
 
   - name: "slider"
     label: "Homepage Slider"

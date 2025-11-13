@@ -40,23 +40,14 @@
             </div>
         </section>
 
+        <!-- Dynamic sections will be loaded here -->
+        <div id="about-sections-container">
         <section id="activities" class="content-section">
-            <div class="container">
-                <h2 data-tr="Faaliyet Alanları" data-en="Fields of Activity">Faaliyet Alanları</h2>
-                <p data-tr="Metsis İnşaat, inşaat sektöründe geniş bir yelpazede hizmet vermektedir. Faaliyet alanlarımız:" 
-                   data-en="Metsis Construction provides services in a wide range of construction sectors. Our fields of activity:">
-                    Metsis İnşaat, inşaat sektöründe geniş bir yelpazede hizmet vermektedir. Faaliyet alanlarımız:
-                </p>
-                <ul>
-                    <li data-tr="Konut Projeleri" data-en="Residential Projects">Konut Projeleri</li>
-                    <li data-tr="Ticari Yapılar" data-en="Commercial Buildings">Ticari Yapılar</li>
-                    <li data-tr="Endüstriyel Tesisler" data-en="Industrial Facilities">Endüstriyel Tesisler</li>
-                    <li data-tr="Kamu Binaları" data-en="Public Buildings">Kamu Binaları</li>
-                    <li data-tr="Altyapı Projeleri" data-en="Infrastructure Projects">Altyapı Projeleri</li>
-                    <li data-tr="Restorasyon ve Renovasyon" data-en="Restoration and Renovation">Restorasyon ve Renovasyon</li>
-                </ul>
+            <div class="container" id="about-sections">
+                <!-- About sections will be loaded from /content/about/activities.json by js/about-loader.js -->
             </div>
         </section>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -134,5 +125,6 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/about-loader.js"></script>
 </body>
 </html>
