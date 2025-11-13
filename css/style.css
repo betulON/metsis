@@ -627,7 +627,7 @@ body[class*="projects"] .page-header {
     bottom: -100%;
     left: 0;
     right: 0;
-    height: 80%;
+    height: 70%;
     background: rgba(255, 255, 255, 0.75);
     padding: 30px 25px;
     transition: bottom 0.4s ease-in-out;

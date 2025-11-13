@@ -200,14 +200,7 @@ function renderProjects(projects) {
             `;
         }
         
-        if (project.description_tr || project.description_en) {
-            const description = currentLang === 'tr' ? (project.description_tr || project.description_en) : (project.description_en || project.description_tr);
-            detailsHTML += `
-                <div class="project-detail">
-                    <p data-tr="${project.description_tr || ''}" data-en="${project.description_en || ''}">${description}</p>
-                </div>
-            `;
-        }
+        // Removed project description from project cards
         
         console.log(`Project ${index} details HTML:`, detailsHTML); // Debug HTML
         
