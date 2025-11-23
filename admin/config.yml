@@ -100,16 +100,6 @@ collections:
     fields:
       - { label: "Title (Turkish)", name: "title_tr", widget: "string" }
       - { label: "Title (English)", name: "title_en", widget: "string" }
-      - {
-          label: "Description (Turkish)",
-          name: "description_tr",
-          widget: "text",
-        }
-      - {
-          label: "Description (English)",
-          name: "description_en",
-          widget: "text",
-        }
       - { label: "Image", name: "image", widget: "image" }
       - {
           label: "Location (Turkish)",
