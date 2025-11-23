@@ -1,13 +1,13 @@
 {
   
-  "title_tr": "Proje 1",
+  "title_tr": "Proje 5",
   "location_tr": "İstanbul, Türkiye",
   "start_date": "01/2024",
 
   "order": 1,
-  "title_en": "Project 1",
+  "title_en": "Project 5",
   "completion_date": "06/2024",
   "location_en": "Istanbul, Turkey",
-  "image": "images/project1.png",
+  "image": "/images/project1.png",
   "customer": "Sample Customer Ltd."
 }
