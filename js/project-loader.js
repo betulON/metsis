@@ -171,11 +171,23 @@ function renderProjects(projects) {
         }
         
         if (project.customer) {
-            const customerLabel = currentLang === 'tr' ? 'Müşteri' : 'Customer';
+            const customerLabel = currentLang === 'tr' ? 'Müşteri' : 'Client';
             detailsHTML += `
                 <div class="project-detail">
-                    <strong data-tr="Müşteri:" data-en="Customer:">${customerLabel}:</strong>
+                    <strong data-tr="Müşteri:" data-en="Client:">${customerLabel}:</strong>
                     <span>${project.customer}</span>
+                </div>
+            `;
+        }
+
+        // Area/Length info
+        if (project.area_length_tr || project.area_length_en) {
+            const areaLabel = currentLang === 'tr' ? 'Alan/Uzunluk' : 'Area/Length';
+            const areaValue = currentLang === 'tr' ? (project.area_length_tr || project.area_length_en) : (project.area_length_en || project.area_length_tr);
+            detailsHTML += `
+                <div class="project-detail">
+                    <strong data-tr="Alan/Uzunluk:" data-en="Area/Length:">${areaLabel}:</strong>
+                    <span data-tr="${project.area_length_tr || ''}" data-en="${project.area_length_en || ''}">${areaValue}</span>
                 </div>
             `;
         }
